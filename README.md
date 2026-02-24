@@ -1,2 +1,11 @@
-# Mimi-n-Do
-Projek Mimi n Do Tim Cihuy - Tech Soft Polindra 2026 - WEB Design Competition
+# Mimi n Do
+
+##Universitas Bhayangkara Jakarta Raya
+
+##Anggota Tim
+- Ketua    : Qaisy Al Qatthan Jakaria
+- Anggota 1: Muhamad Fadhil
+
+##Deskripsi Karya
+
+##Link Website
