@@ -794,16 +794,10 @@ h3 {
   }
 
   .section-4-tentang .kanan {
-    background-color: green;
     min-width: 90%;
   }
 
-  .section-4-tentang .sosmed {
-    background-color: yellow;
-  }
-
   .section-4-tentang .sosmed .ikon-sosmed {
-    background-color: pink;
     min-width: 100%;
   }
 
