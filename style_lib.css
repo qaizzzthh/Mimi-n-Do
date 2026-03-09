@@ -15,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   scroll-behavior: smooth;
@@ -23,6 +23,7 @@ body {
   font-family: "Quicksand", sans-serif;
   opacity: 1;
   transition: opacity 0.5s;
+  overflow: hidden;
 }
 
 body.fade-out {
@@ -37,7 +38,7 @@ a {
 /* Navigasi Vertical Sidebar */
 .navigasi {
   background-color: #ffffff;
-  width: 80px;
+  width: 70px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -76,7 +77,8 @@ a {
   font-size: 2rem;
 }
 
-.menu a:hover {
+.menu .material-symbols-outlined:hover {
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
   opacity: 0.7;
 }
 
@@ -84,7 +86,7 @@ a {
   writing-mode: horizontal-tb;
   transform: none;
   background: white;
-  color: var(--nav-bg);
+  color: var(--biru-tua);
   padding: 8px;
   border-radius: 8px;
   margin-top: 1rem;
@@ -105,11 +107,37 @@ a {
   display: none;
 }
 
+#main-library-container {
+    flex: 1;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
 h1 {
   font-weight: 700 !important;
   font-size: clamp(2rem, 5vw, 4rem) !important;
   color: var(--biru-tua) !important;
   margin-bottom: 1rem !important;
+}
+
+#reader-container {
+    width: 400px;
+    height: 100vh;
+    background: white;
+    border-left: 2px solid #e2e8f0;
+    overflow-y: auto;
+    display: none;
+    z-index: 10;
+}
+
+#reader-container.active {
+    display: block;
+    animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
 }
 
 /* Search Section */
@@ -283,17 +311,14 @@ h1 {
   width: 100%;
   aspect-ratio: 2/3;
   object-fit: cover;
-  border-radius: 12px;
   margin-bottom: 0.5rem;
-  box-shadow: 0 2px 6px -1px rgb(0 0 0 / 0.1);
-  background-color: #ddd;
   /* Fallback jika img tidak ada */
 }
 
 .book-card p {
   font-weight: 700;
   font-size: 1rem;
-  color: var(--primary-blue);
+  color: var(--biru-tua);
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;

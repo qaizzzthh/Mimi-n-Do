@@ -15,160 +15,229 @@
 </head>
 
 <body>
-
-    <body>
-        <nav class="navigasi">
-            <img src="img/Logo.svg" alt="Logo Mimi n Do" width="70%">
-            <div class="menu">
-                <a href="../Home/index.html" class="smooth-link"><span class="material-symbols-outlined">home</span></a>
-                <a href="#section-baca"><span class="material-symbols-outlined">menu_book</span></a>
-                <a href="#section-tulis"><span class="material-symbols-outlined">contract_edit</span></a>
-                <a href="#section-tentang"><span class="material-symbols-outlined">info</span></a>
-                <a class="Masuk" href="#">Masuk</a>
-            </div>
-        </nav>
-
-        <div class="container">
-            <h1>Jelajahi Cerita</h1>
-
-            <!--Slider Information-->
-            <div
-                class="max-w-100% w-full bg-white dark:bg-gray-800 rounded-3xl shadow-lg overflow-hidden relative group">
-                <!-- Kontainer Slides -->
-                <div id="slider-container" class="relative h-[350px] md:h-[400px]">
-
-                    <!-- Slide 1 -->
-                    <div class="slide active h-full relative">
-                        <img src="https://images.unsplash.com/photo-1504711432869-efd597cdd04d?auto=format&fit=crop&q=80&w=1200"
-                            alt="Berita Teknologi" class="w-full h-full object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
-                            <span
-                                class="bg-blue-600 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">TEKNOLOGI</span>
-                            <h2 class="text-2xl md:text-3xl font-bold">Masa Depan Kecerdasan Buatan di Tahun 2024</h2>
-                            <p class="text-gray-300 mt-2 line-clamp-2">Bagaimana teknologi AI mulai merambah sektor
-                                kesehatan dan pendidikan secara masif.</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="slide h-full relative">
-                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=1200"
-                            alt="Berita Olahraga" class="w-full h-full object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
-                            <span
-                                class="bg-green-600 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">OLAHRAGA</span>
-                            <h2 class="text-2xl md:text-3xl font-bold">Persiapan Tim Nasional Menjelang Kualifikasi
-                                Dunia</h2>
-                            <p class="text-gray-300 mt-2 line-clamp-2">Latihan intensif dilakukan di pusat pelatihan
-                                nasional untuk performa maksimal.</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="slide h-full relative">
-                        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=1200"
-                            alt="Berita Ekonomi" class="w-full h-full object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
-                            <span
-                                class="bg-red-600 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">EKONOMI</span>
-                            <h2 class="text-2xl md:text-3xl font-bold">Stabilitas Ekonomi Global dan Dampaknya ke Pasar
-                                Lokal</h2>
-                            <p class="text-gray-300 mt-2 line-clamp-2">Para analis memprediksi pertumbuhan ekonomi yang
-                                stabil pada kuartal mendatang.</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4 -->
-                    <div class="slide h-full relative">
-                        <img src="https://images.unsplash.com/photo-1501339819358-ee5911aa1574?auto=format&fit=crop&q=80&w=1200"
-                            alt="Berita Gaya Hidup" class="w-full h-full object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
-                            <span class="bg-purple-600 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">GAYA
-                                HIDUP</span>
-                            <h2 class="text-2xl md:text-3xl font-bold">Tips Hidup Sehat dengan Pola Makan Teratur</h2>
-                            <p class="text-gray-300 mt-2 line-clamp-2">Kesehatan bermula dari apa yang Anda konsumsi
-                                setiap hari. Simak panduan lengkapnya.</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Kontrol Navigasi (Panah) -->
-                <button onclick="changeSlide(-1)"
-                    class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition-all opacity-0 group-hover:opacity-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button onclick="changeSlide(1)"
-                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition-all opacity-0 group-hover:opacity-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-
-                <!-- Indikator Dot -->
-                <div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 flex items-center bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full"
-                    id="dots-container">
-                    <span class="dot active-dot" onclick="setSlide(0)"></span>
-                    <span class="dot" onclick="setSlide(1)"></span>
-                    <span class="dot" onclick="setSlide(2)"></span>
-                    <span class="dot" onclick="setSlide(3)"></span>
-                </div>
-            </div>
-            <!--Slider Information-->
-
-            <!--Search-->
-            <section class="search">
-                <form id="search-form">
-                    <input type="text" id="search-input" placeholder="Cari Buku ...">
-                    <button type="submit">Cari</button>
-                </form>
-            </section>
-
-            <!--Daftar Buku-->
-            <section class="daftar-buku">
-                <div class="atas">
-                    <h3 id="section-title">Koleksi Kami</h3>
-                    <div class="render">
-                        <div class="view-all" id="toggle-view">
-                            <span class="material-symbols-outlined" id="view-icon">visibility</span>
-                            <span id="view-text">Lihat Semua</span>
-                        </div>
-                        <div class="nav-btn-wrapper" id="nav-btns" style="display: flex; gap: 0.5rem;">
-                            <div class="nav-btn" onclick="scrollBooks(-1)">&#10094;</div>
-                            <div class="nav-btn" onclick="scrollBooks(1)">&#10095;</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bawah" id="books-container">
-                    <!-- Data buku akan muncul di sini -->
-                </div>
-            </section>
+    <nav class="navigasi">
+        <img src="img/Logo.svg" alt="Logo Mimi n Do" width="70%">
+        <div class="menu">
+            <a href="../Home/index.html" class="smooth-link"><span class="material-symbols-outlined">home</span></a>
+            <a href="#section-baca"><span class="material-symbols-outlined">menu_book</span></a>
+            <a href="#section-tulis"><span class="material-symbols-outlined">contract_edit</span></a>
+            <a href="#section-tentang"><span class="material-symbols-outlined">info</span></a>
+            <a class="Masuk" href="#">Masuk</a>
         </div>
+    </nav>
 
-        <script src="JS/slideInformation.js"></script>
-        <script src="JS/booksData.js"></script>
-        <script src="JS/booksRender.js"></script>
-        <script src="JS/main.js"></script>
+    <div class="container" id="main-library-container">
+        <h1>Jelajahi Cerita</h1>
 
-        <script>
-            document.querySelectorAll('.smooth-link').forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.body.classList.add('fade-out');
-                    setTimeout(() => {
-                        window.location.href = this.href;
-                    }, 500); // waktu transisi 0.5 detik
-                });
-            });
-        </script>
-    </body>
+        <!--Slider Information-->
+        <div class="max-w-full w-full bg-white dark:bg-gray-800 rounded-3xl shadow-lg overflow-hidden relative group">
+            <!-- Kontainer Slides -->
+            <div id="slider-container" class="relative h-[350px] md:h-[400px]">
+
+                <!-- Slide 1 -->
+                <div class="slide active h-full relative">
+                    <img src="https://images.unsplash.com/photo-1504711432869-efd597cdd04d?auto=format&fit=crop&q=80&w=1200"
+                        alt="Berita Teknologi" class="w-full h-full object-cover">
+                    <div
+                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
+                        <span
+                            class="bg-blue-600 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">TEKNOLOGI</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">Masa Depan Kecerdasan Buatan di Tahun 2024</h2>
+                        <p class="text-gray-300 mt-2 line-clamp-2">Bagaimana teknologi AI mulai merambah sektor
+                            kesehatan dan pendidikan secara masif.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide h-full relative">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=1200"
+                        alt="Berita Olahraga" class="w-full h-full object-cover">
+                    <div
+                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
+                        <span
+                            class="bg-green-600 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">OLAHRAGA</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">Persiapan Tim Nasional Menjelang Kualifikasi
+                            Dunia</h2>
+                        <p class="text-gray-300 mt-2 line-clamp-2">Latihan intensif dilakukan di pusat pelatihan
+                            nasional untuk performa maksimal.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide h-full relative">
+                    <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=1200"
+                        alt="Berita Ekonomi" class="w-full h-full object-cover">
+                    <div
+                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
+                        <span
+                            class="bg-red-600 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">EKONOMI</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">Stabilitas Ekonomi Global dan Dampaknya ke Pasar
+                            Lokal</h2>
+                        <p class="text-gray-300 mt-2 line-clamp-2">Para analis memprediksi pertumbuhan ekonomi yang
+                            stabil pada kuartal mendatang.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="slide h-full relative">
+                    <img src="https://images.unsplash.com/photo-1501339819358-ee5911aa1574?auto=format&fit=crop&q=80&w=1200"
+                        alt="Berita Gaya Hidup" class="w-full h-full object-cover">
+                    <div
+                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
+                        <span class="bg-purple-600 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">GAYA
+                            HIDUP</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">Tips Hidup Sehat dengan Pola Makan Teratur</h2>
+                        <p class="text-gray-300 mt-2 line-clamp-2">Kesehatan bermula dari apa yang Anda konsumsi
+                            setiap hari. Simak panduan lengkapnya.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Kontrol Navigasi (Panah) -->
+            <button onclick="changeSlide(-1)"
+                class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition-all opacity-0 group-hover:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button onclick="changeSlide(1)"
+                class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full text-white transition-all opacity-0 group-hover:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+
+            <!-- Indikator Dot -->
+            <div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 flex items-center bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full"
+                id="dots-container">
+                <span class="dot active-dot" onclick="setSlide(0)"></span>
+                <span class="dot" onclick="setSlide(1)"></span>
+                <span class="dot" onclick="setSlide(2)"></span>
+                <span class="dot" onclick="setSlide(3)"></span>
+            </div>
+        </div>
+        <!--Slider Information-->
+
+        <!--Search-->
+        <section class="search">
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Cari Buku ...">
+                <button type="submit">Cari</button>
+            </form>
+        </section>
+
+        <!--Daftar Buku-->
+        <section class="daftar-buku">
+            <div class="atas">
+                <h3 id="section-title">Koleksi Kami</h3>
+                <div class="render">
+                    <div class="view-all" id="toggle-view">
+                        <span class="material-symbols-outlined" id="view-icon">visibility</span>
+                        <span id="view-text">Lihat Semua</span>
+                    </div>
+                    <div class="nav-btn-wrapper" id="nav-btns" style="display: flex; gap: 0.5rem;">
+                        <div class="nav-btn" onclick="scrollBooks(-1)">&#10094;</div>
+                        <div class="nav-btn" onclick="scrollBooks(1)">&#10095;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bawah" id="books-container">
+                <!-- Data buku akan muncul di sini -->
+            </div>
+        </section>
+    </div>
+
+    <!-- READER CONTAINER (BARU - MUNCUL SAAT PROTOTYPE: TRUE) -->
+    <section id="reader-container" class="hidden-container p-6 md:p-12 fade-in">
+        <div class="max-w-4xl mx-auto">
+            <!-- Tombol Kembali -->
+            <button onclick="closeReader()"
+                class="mb-8 flex items-center text-indigo-700 font-bold bg-white px-6 py-3 rounded-2xl shadow-sm hover:shadow-md">
+                <span class="material-symbols-outlined mr-2">arrow_back</span> Kembali ke Koleksi
+            </button>
+
+            <!-- Konten Bacaan -->
+            <div class="bg-white rounded-[3rem] p-10 md:p-20 shadow-xl min-h-[70vh]">
+                <div class="text-center mb-10">
+                    <h2 id="reader-title" class="text-4xl font-extrabold text-slate-800 mb-4 italic">Judul Buku</h2>
+                    <div class="w-24 h-1 bg-indigo-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div id="reader-content-area" class="text-center">
+                    <img id="reader-cover" src="" alt=""
+                        class="w-56 h-80 mx-auto rounded-2xl shadow-xl mb-12 object-cover border-4 border-white">
+                    <div class="prose prose-slate max-w-none text-xl text-slate-700 leading-relaxed">
+                        <!-- Isian konten bisa Anda tambahkan di sini -->
+                        <p>Kontainer ini sekarang sudah aktif. Anda bisa meletakkan elemen apa pun untuk pembaca di
+                            sini.</p>
+                        <div class="p-8 border-2 border-dashed border-slate-200 rounded-3xl mt-8 text-slate-400">
+                            Bagian ini siap Anda isi sendiri.
+                            <audio id="klikSuara" src="img/Kisah Timun Mas dan Raksasa _ Dongeng Anak Bahasa Indonesia _ Cerita Rakyat Jawa Tengah.mp3"></audio>
+                            <button onclick="playSuara()">Dengarkan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tambahkan ini di bagian paling bawah sebelum tag -->
+    <div id="alert-overlay"
+        style="display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); align-items: center; justify-content: center;">
+        <iframe id="alert-frame" src="alert.html"
+            style="width: 100%; height: 100%; border: none; background: transparent;"></iframe>
+    </div>
+
+    <!-- Scripts -->
+    <script src="JS/slideInformation.js"></script>
+    <script src="JS/booksData.js"></script>
+    <script src="JS/booksRender.js"></script>
+    <script src="JS/main.js"></script>
+
+    <script>
+        window.openReader = function (book) {
+            const readerContainer = document.getElementById('reader-container');
+
+            if (readerContainer) {
+                // Tampilkan reader tanpa menyembunyikan main container
+                readerContainer.classList.add('active');
+
+                // Update Konten Reader
+                document.getElementById('reader-title').innerText = book.title;
+                document.getElementById('reader-cover').src = book.cover;
+
+                // Opsional: Scroll main container ke buku yang diklik agar tetap terlihat
+            }
+        }
+
+        window.closeReader = function () {
+            const readerContainer = document.getElementById('reader-container');
+
+            if (readerContainer) {
+                // Hanya sembunyikan reader kembali
+                readerContainer.classList.remove('active');
+            }
+        }
+
+        function closeAlert() {
+            document.getElementById('alert-overlay').classList.add('hidden');
+            document.getElementById('alert-overlay').style.display = 'none';
+        }
+
+        // Overlay listener
+        document.getElementById('alert-overlay').addEventListener('click', function (e) {
+            if (e.target === this) closeAlert();
+        });
+
+        //Suara Dongeng
+        function playSuara() {
+            const audio = document.getElementById("klikSuara");
+            audio.play();
+        }
+    </script>
+</body>
 
 </html>
