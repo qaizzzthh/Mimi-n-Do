@@ -15,13 +15,14 @@
 </head>
 
 <body>
+    <img src="img/bc-library.svg" class="bc">
     <nav class="navigasi">
         <img src="img/Logo.svg" alt="Logo Mimi n Do" width="70%">
         <div class="menu">
             <a href="../Home/index.html" class="smooth-link"><span class="material-symbols-outlined">home</span></a>
             <a href="#section-baca"><span class="material-symbols-outlined">menu_book</span></a>
             <a href="#section-tulis"><span class="material-symbols-outlined">contract_edit</span></a>
-            <a href="#section-tentang"><span class="material-symbols-outlined">info</span></a>
+            <a href="../Home/index.html#section-tentang"><span class="material-symbols-outlined">info</span></a>
             <a class="Masuk" href="#">Masuk</a>
         </div>
     </nav>
@@ -151,32 +152,35 @@
     </div>
 
     <!-- READER CONTAINER (BARU - MUNCUL SAAT PROTOTYPE: TRUE) -->
-    <section id="reader-container" class="hidden-container p-6 md:p-12 fade-in">
+    <section id="reader-container" class="hidden-container p-6 md:p-12 fade-in text-[#3a5298]">
         <div class="max-w-4xl mx-auto">
             <!-- Tombol Kembali -->
             <button onclick="closeReader()"
-                class="mb-8 flex items-center text-indigo-700 font-bold bg-white px-6 py-3 rounded-2xl shadow-sm hover:shadow-md">
+                class="mb-8 flex items-center text-700 font-bold bg-white px-6 py-3 rounded-2xl shadow-sm hover:shadow-md">
                 <span class="material-symbols-outlined mr-2">arrow_back</span> Kembali ke Koleksi
             </button>
 
             <!-- Konten Bacaan -->
-            <div class="bg-white rounded-[3rem] p-10 md:p-20 shadow-xl min-h-[70vh]">
+            <div class="bg-white/50 backdrop-blur-md rounded-[1.5rem] p-3 md:p-7 shadow-xl min-h-[70vh]">
                 <div class="text-center mb-10">
-                    <h2 id="reader-title" class="text-4xl font-extrabold text-slate-800 mb-4 italic">Judul Buku</h2>
-                    <div class="w-24 h-1 bg-indigo-500 mx-auto rounded-full"></div>
+                    <h2 id="reader-title" class="text-4xl font-extrabold text-800 mb-4">Judul Buku</h2>
+                    <div class="w-24 h-1 bg-[#3a5298] mx-auto rounded-full"></div>
                 </div>
 
                 <div id="reader-content-area" class="text-center">
-                    <img id="reader-cover" src="" alt=""
-                        class="w-56 h-80 mx-auto rounded-2xl shadow-xl mb-12 object-cover border-4 border-white">
-                    <div class="prose prose-slate max-w-none text-xl text-slate-700 leading-relaxed">
+                    <img id="reader-cover" src="" alt="" class="w-40 h-auto mx-auto mb-12">
+                    <div class="prose prose-slate w-xs text-xl text-700 leading-relaxed">
                         <!-- Isian konten bisa Anda tambahkan di sini -->
-                        <p>Kontainer ini sekarang sudah aktif. Anda bisa meletakkan elemen apa pun untuk pembaca di
-                            sini.</p>
-                        <div class="p-8 border-2 border-dashed border-slate-200 rounded-3xl mt-8 text-slate-400">
-                            Bagian ini siap Anda isi sendiri.
-                            <audio id="klikSuara" src="img/Kisah Timun Mas dan Raksasa _ Dongeng Anak Bahasa Indonesia _ Cerita Rakyat Jawa Tengah.mp3"></audio>
+                        <h3>Deskripsi</h3>
+                        <p>Mbok Srini mendapat bayi cantik dari dalam buah timun emas pemberian raksasa. Namun, saat
+                            dewasa, Timun Mas harus lari menyelamatkan diri dari kejaran sang raksasa. Berbekal 4
+                            bungkusan ajaib yang bisa mengubah hutan menjadi lautan dan lumpur, dimulailah aksi
+                            kejar-kejaran paling seru demi memenangkan kebebasannya!</p>
+                        <div class="p-8 mt-8 text-400">
+                            <audio id="klikSuara"
+                                src="img/Kisah Timun Mas dan Raksasa _ Dongeng Anak Bahasa Indonesia _ Cerita Rakyat Jawa Tengah.mp3"></audio>
                             <button onclick="playSuara()">Dengarkan</button>
+                            <a href="book.html">Membaca</a>
                         </div>
                     </div>
                 </div>
@@ -217,8 +221,16 @@
             const readerContainer = document.getElementById('reader-container');
 
             if (readerContainer) {
-                // Hanya sembunyikan reader kembali
-                readerContainer.classList.remove('active');
+                // Hapus animasi masuk, tambahkan animasi keluar
+                readerContainer.classList.remove('fade-in');
+                readerContainer.classList.add('fade-out');
+
+                // Setelah animasi selesai, baru sembunyikan
+                readerContainer.addEventListener('animationend', function handler() {
+                    readerContainer.classList.remove('active');
+                    readerContainer.classList.remove('fade-out');
+                    readerContainer.removeEventListener('animationend', handler);
+                });
             }
         }
 
