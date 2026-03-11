@@ -1,0 +1,158 @@
+/* ========================= */
+/* BODY BACKGROUND */
+/* ========================= */
+
+body{
+  margin:0;
+  font-family:'Quicksand', sans-serif;
+
+  background: linear-gradient(
+    180deg,
+    #6fb1e7 0%,
+    #cfe6f8 100%
+  );
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+
+  position:relative;
+}
+/* DAUN ICON (BACKGROUND IMAGE) */
+/* ========================= */
+
+.daun-icon{
+  position:absolute;
+
+  top:100px;      /* ubah kalau mau naik turun */
+  left:0;
+
+  width:100%;
+
+  z-index:-10;     /* membuatnya di belakang semua elemen */
+}
+
+.daun-icon img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ========================= */
+/* BACK BUTTON */
+/* ========================= */
+.back-btn{
+  position:absolute;
+
+  top:20px;     /* ubah kalau mau naik turun */
+  left:20px;    /* ubah kalau mau geser */
+
+  z-index:10;
+  cursor:pointer;
+}
+
+.back-btn img{
+  width:100px;
+}
+
+
+/* ========================= */
+/* KOTAK BIRU HEADER */
+/* ========================= */
+.kotak-icon{
+  position:absolute;
+
+  top:0;           /* kotak biru benar-benar di atas */
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:1180px;
+  height:118px;
+
+  z-index:2;
+}
+
+.kotak-icon img{
+  width:100%;
+  height:100%;
+}
+
+
+/* ========================= */
+/* TEXT DI KOTAK BIRU */
+/* ========================= */
+
+.judul-kotak{
+  position:absolute;
+
+  top:50%;            /* ubah untuk naik turun */
+  left:40px;          /* ubah untuk geser kanan kiri */
+
+  transform:translateY(-50%);
+
+  font-size:42px;     /* ukuran font bisa ubah */
+  font-weight:700;
+
+  color:#3A5298;      /* warna font bisa ubah */
+
+  font-family: 'Poppins', sans-serif;  /* font bisa ubah */
+
+  margin:0;
+}
+
+
+/* ========================= */
+/* LIBRARY ICON */
+/* ========================= */
+.simpan-btn{
+  position:absolute;
+
+  top:800px;   /* ubah kalau mau naik turun */
+  left:1260px;  /* ubah kalau mau geser */
+
+  z-index:3;
+}
+
+.simpan-btn img{
+  width:200px;
+}
+
+.word-icon {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1180px;
+  height: 118px;
+}
+
+.kotak-icon img{
+  width: 100%;
+  height: 100%;
+}
+
+
+.silang-icon{
+  position:absolute;
+
+  top:140px;   /* ubah kalau mau naik turun */
+  left:120px;  /* ubah kalau mau geser */
+
+  z-index:3;
+}
+
+.silang-icon img{
+  width:150px;
+}
+
+
+
+
+
+
+
+
+
+
+
