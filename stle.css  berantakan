@@ -1,0 +1,217 @@
+/* ========================= */
+/* BODY BACKGROUND */
+/* ========================= */
+
+body{
+  margin:0;
+  font-family:'Quicksand', sans-serif;
+
+  background: linear-gradient(
+    180deg,
+    #6fb1e7 0%,
+    #cfe6f8 100%
+  );
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+
+  position:relative;
+}
+/* DAUN ICON (BACKGROUND IMAGE) */
+/* ========================= */
+
+.daun-icon{
+  position:absolute;
+
+  top:100px;      /* ubah kalau mau naik turun */
+  left:0;
+
+  width:100%;
+
+  z-index:-10;     /* membuatnya di belakang semua elemen */
+}
+
+.daun-icon img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ========================= */
+/* BACK BUTTON */
+/* ========================= */
+.back-btn{
+  position:absolute;
+
+  top:20px;     /* ubah kalau mau naik turun */
+  left:20px;    /* ubah kalau mau geser */
+
+  z-index:10;
+  cursor:pointer;
+}
+
+.back-btn img{
+  width:100px;
+}
+
+
+/* ========================= */
+/* KOTAK BIRU HEADER */
+/* ========================= */
+.kotak-icon{
+  position:absolute;
+
+  top:0;           /* kotak biru benar-benar di atas */
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:1180px;
+  height:118px;
+
+  z-index:2;
+}
+
+.kotak-icon img{
+  width:100%;
+  height:100%;
+}
+
+
+/* ========================= */
+/* TEXT DI KOTAK BIRU */
+/* ========================= */
+
+.judul-kotak{
+  position:absolute;
+
+  top:50%;            /* ubah untuk naik turun */
+  left:40px;          /* ubah untuk geser kanan kiri */
+
+  transform:translateY(-50%);
+
+  font-size:42px;     /* ukuran font bisa ubah */
+  font-weight:700;
+
+  color:#3A5298;      /* warna font bisa ubah */
+
+  font-family: 'Poppins', sans-serif;  /* font bisa ubah */
+
+  margin:0;
+}
+
+
+
+
+.isi-icon {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1100px;
+  height: 110px;
+  z-index: 1;
+} 
+
+
+
+
+.apus-icon{
+  position:absolute;
+
+  top:130px;   /* ubah kalau mau naik turun */
+  left:230px;  /* ubah kalau mau geser */
+
+  z-index:3;
+}
+
+.apus-icon img{
+  width:130px;
+}
+
+.tambah-icon{
+  position:absolute;
+
+  top:120px;   /* ubah kalau mau naik turun */
+  left:1180px;  /* ubah kalau mau geser */
+
+  z-index:3;
+}
+
+.tambah-icon img{
+  width:150px;
+}
+
+.cerita-container{
+    position: relative;
+    width: 800px;
+    margin: auto;
+    padding-top: 220px;
+    z-index: 5;
+}
+
+.cerita-item{
+    display: grid;
+    grid-template-columns: 50px 60px 1fr 200px 120px;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+/* kotak nomor */
+.nomor{
+    background: #f5b82e;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:20px;
+}
+
+/* icon buku */
+.icon-buku{
+    width:40px;
+}
+
+/* judul cerita */
+.judul{
+    font-size:20px;
+    color:#3a5298;
+}
+
+/* tanggal */
+.tanggal{
+    font-size:20px;
+    color:#3a5298;
+}
+
+/* tombol upload */
+.btn-upload{
+    background:#f5b82e;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:25px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.btn-upload:hover{
+    background:#e0a521;
+}
+
+
+
+
+
+
+
+
+
+
+
