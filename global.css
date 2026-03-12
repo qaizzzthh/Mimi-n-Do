@@ -1,0 +1,39 @@
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* penting untuk scroll */
+html, body{
+  height:100%;
+}
+
+/* ===== BODY ===== */
+body{
+  font-family:'Quicksand',sans-serif;
+
+  /* BACKGROUND GRADIENT */
+  background: linear-gradient(
+    180deg,
+    #6fb1e7,
+    #cfe6f8,
+    #ffffff
+  );
+
+  background-attachment: fixed; /* supaya tidak terpotong */
+
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+
+  position:relative;
+  z-index:2;
+}
