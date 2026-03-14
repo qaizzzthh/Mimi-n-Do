@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimi n Do</title>
+    <link rel="icon" type="image/png" href="img/Logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <style>
+        :root {
+            --book-width: 400px;
+            --book-height: 600px;
+            --duration: 0.8s;
+            --bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
+            --page-bg: #f9f6e9;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #2c3e50;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+            perspective: 1500px;
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        body.fade-out {
+            opacity: 0;
+        }
+
+        /* --- TAMBAHAN STYLE HOVER CLOSE --- */
+        #hover-close-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 10px;
+        }
+
+        #close-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transform: translateY(-120%);
+            transition: transform 0.3s ease;
+        }
+
+        #hover-close-area:hover #close-btn {
+            transform: translateY(0);
+        }
+
+        /* Container Buku */
+        .book {
+            position: relative;
+            width: var(--book-width);
+            height: var(--book-height);
+            transition: transform var(--duration) var(--bezier);
+            transform-style: preserve-3d;
+            z-index: 5;
+        }
+
+        /* Halaman */
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform-origin: left;
+            transform-style: preserve-3d;
+            transition: transform var(--duration) var(--bezier);
+        }
+
+        /* Sisi Depan & Belakang */
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            background-color: var(--page-bg);
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 0 10px 10px 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            overflow: hidden;
+        }
+
+        /* Khusus untuk halaman Cover agar gambar penuh */
+        .page#p1 .front {
+            padding: 0;
+        }
+
+        .cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+            border-radius: 10px 0 0 10px;
+        }
+
+        .flipped {
+            transform: rotateY(-180deg);
+        }
+
+        /* Styling Minigame */
+        .game-container {
+            width: 100%;
+            height: 250px;
+            background: #e1f5fe;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid #81d4fa;
+            margin-top: 15px;
+        }
+
+        .soil {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            background: #795548;
+        }
+
+        .plant-stage {
+            position: absolute;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.5s ease;
+            font-size: 3rem;
+            pointer-events: none;
+        }
+
+        .game-status {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            font-weight: bold;
+            color: #01579b;
+            pointer-events: none;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .instruction-hint {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Water Effects */
+        .watering-can {
+            position: absolute;
+            font-size: 2.5rem;
+            pointer-events: none;
+            z-index: 20;
+            transform: rotate(-20deg);
+            filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.2));
+            animation: pour 0.5s ease forwards;
+        }
+
+        @keyframes pour {
+            0% { transform: rotate(0deg) scale(0); opacity: 0; }
+            50% { transform: rotate(-45deg) scale(1.2); opacity: 1; }
+            100% { transform: rotate(-45deg) scale(1); opacity: 0; }
+        }
+
+        .water-drop {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #4fc3f7;
+            border-radius: 50% 0 50% 50%;
+            transform: rotate(-45deg);
+            pointer-events: none;
+            z-index: 15;
+            animation: fall 0.6s linear forwards;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+            100% { transform: translateY(100px) rotate(-45deg); opacity: 0; }
+        }
+
+        /* Kontrol Samping */
+        .controls {
+            position: fixed;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5vw;
+            box-sizing: border-box;
+            pointer-events: none; /* Agar tidak menghalangi klik buku di tengah */
+            z-index: 100;
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            border: none;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            color: white;
+            border-radius: 50%; /* Menjadi bulat */
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: auto; /* Aktifkan kembali pointer untuk tombol */
+            text-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        button .material-symbols-outlined {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* Layering Initial Z-index */
+        #p1 { z-index: 8; }
+        #p2 { z-index: 7; }
+        #p3 { z-index: 6; }
+        #p4 { z-index: 5; }
+        #p5 { z-index: 4; }
+        #p6 { z-index: 3; }
+        #p7 { z-index: 2; }
+        #p8 { z-index: 1; }
+
+        @media (max-width: 768px) {
+            .controls {
+                padding: 0 10px;
+            }
+            button {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            :root {
+                --book-width: 300px;
+                --book-height: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Area Hover Close -->
+    <div id="hover-close-area">
+        <!-- Mengubah onclick agar kembali ke riwayat web sebelumnya (history back) -->
+        <button id="close-btn" onclick="window.history.back()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+
+    <!-- Audio Element untuk efek balik kertas -->
+    <audio id="flipSound" src="img/effect_flip.mp3"></audio>
+
+    <div class="controls">
+        <button id="prevBtn">
+            <span class="material-symbols-outlined">arrow_back_ios_new</span>
+        </button>
+        <button id="nextBtn">
+            <span class="material-symbols-outlined">arrow_forward_ios</span>
+        </button>
+    </div>
+
+    <div class="book" id="book">
+        <!-- Halaman 1 (Cover) -->
+        <div class="page" id="p1">
+            <div class="front">
+                <img src="img/cover-timun-mas.svg" alt="Cover Timun Mas" class="cover-img">
+            </div>
+            <div class="back">
+                <p>Alkisah hiduplah seorang janda yang bernama Mbok Srini. Ia hidup sebatang kara dan sangat menginginkan seorang anak.</p>
+                <img src="img/1.svg" alt="Mbok Srini Kesepian" style="width: 90%; height: auto; cursor: none;">
+            </div>
+        </div>
+
+        <!-- Halaman 2 -->
+        <div class="page" id="p2">
+            <div class="front">
+                <img src="img/2.svg" alt="Mbok Srini Didatangi Raksasa" style="width: 90%; height: auto; cursor: none;">
+                <p>Suatu ketika ia bermimpi didatangi raksasa yang menyuruhnya mengambil bungkusan di balik pohon yang ada di hutan.</p>
+            </div>
+            <div class="back">
+                <p>Di pagi hari nya, Mbok Srini pergi ke hutan untuk mencari kayu bakar. Namun alangkah terkejutnya ia ketika bertemu raksasa dimimpinya berada di dalam hutan.</p>
+                <img src="img/3.svg" alt="Mbok Srini Bertemu Raksasa" style="width: 90%; height: auto; cursor: none;">
+            </div>
+        </div>
+
+        <!-- Halaman 3 -->
+        <div class="page" id="p3">
+            <div class="front">
+                <img src="img/4.svg" alt="Perjanjian dengan Raksasa Hijau" style="width: 90%; height: auto; cursor: none;">
+                <p>Raksasa berkata kepada Mbok Srini bahwa ia akan mengabulkan keinginan Mbok Srini untuk memiliki seorang anak. Tetapi Mbok Srini harus menepati janji yang diberikan raksasa.</p>
+            </div>
+            <div class="back">
+                <p>Mbok Srini harus berjanji akan membesarkan seorang anak sampai berusia 6 tahun dan raksasa akan mengambilnya. Kemudian raksasa memberikan Mbok Srini segenggam biji timun mas untuk di Tanam.</p>
+                <img src="img/5.svg" alt="Mbok Srini Menanam Timun Mas" style="width: 90%; height: auto; cursor: none;">
+            </div>
+        </div>
+
+        <!-- Halaman 4 (Minigame) -->
+        <div class="page" id="p4">
+            <div class="front">
+                <h3 style="margin: 0;">Minigame</h3>
+                <p style="font-size: 0.9rem;">Ayo bantu Mbok Srini untuk menanam dan merawat benih timun mas!</p>
+                
+                <div class="game-container" id="gameArea">
+                    <div class="game-status" id="gameText">Klik untuk menanam benih</div>
+                    <div class="plant-stage" id="plant"></div>
+                    <div class="soil"></div>
+                </div>
+                <p class="instruction-hint" id="gameHint">Klik area tanah di atas</p>
+            </div>
+            <div class="back">
+                <p>Dari dalam timun mas muncul seorang bayi perempuan yang diberi nama Timun Mas. Sejak saat itu Timun Mas tumbuh menjadi anak yang cantik dan hidup dengan baik karena Mbok Srini selalu merawat dan menjaganya.</p>
+                <img src="img/6.svg" alt="Timun Mas" style="width: 90%; height: auto; cursor: none;">
+            </div>
+        </div>
+
+        <!-- Halaman 5 -->
+        <div class="page" id="p5">
+            <div class="front">
+                <img src="img/7.svg" alt="Raksasa Menagih Janji" style="width: 90%; height: auto; cursor: none;">
+                <p>Pada hari ulang tahun Timun Mas yang ke-6, raksasa datang menemui Mbok Srini untuk menagih janjinya. Mbok Srini langsung menyuruh Timun Mas bersembunyi.</p>
+            </div>
+            <div class="back">
+                <p>Mbok Srini kemudian menghampiri raksasa dan dengan cerdik justru berkata "Timun Mas masih terlalu kurus dan kecil, lebih baik kamu datang 2 tahun lagi". Raksasa pun mengiyakan perkataan Mbok Srini.</p>
+                <img src="img/8.svg" alt="Negosiasi Mbok Srini dengan Raksasa" style="width: 90%; height: auto; cursor: none;">
+            </div>
+        </div>
+
+        <!-- Halaman 6 -->
+        <div class="page" id="p6">
+            <div class="front">
+                <img src="img/9.svg" alt="Mbok Srini Memimpikan Pertapa" style="width: 90%; height: auto; cursor: none;">
+                <p>Setelah kepergian raksasa, Mbok Srini terus berdoa kepada tuhan supaya membantunya. Doanya pun terkabul, Mbok Srini dimimpikan seorang pertapa yang berada di gunung.</p>
+            </div>
+            <div class="back">
+                <p>Mbok Srini kemudian menyuruh Timun Mas mencari petapa itu. Setelah berhari-hari pergi, benar saja pertapa tersebut berada di sana.</p>
+                <img src="img/10.svg" alt="Timun Mas Mencari Pertapa" style="width: 90%; height: auto; cursor: none;">
+            </div>
+        </div>
+
+        <!-- Halaman 7 -->
+        <div class="page" id="p7">
+            <div class="front">
+                <img src="img/11.svg" alt="Pertapa Memberikan 4 Bungkusan kepada Timun Mas" style="width: 90%; height: auto; cursor: none;">
+                <p>Pertapa memberikan 4 bungkusan kepada Timun Mas dan menyuruh Timun Mas agar berlari ketika raksasa datang dan melemparkan bungkusan secara bertahap.</p>
+            </div>
+            <div class="back">
+                <p>Tak terasa 2 tahun sudah berlalu dan raksasa mendatangi rumah Mbok Srini lagi. Dengan berat hati Mbok Srini memanggil Timun Mas. Bukannya menghampiri raksasa, Timun Mas lari meninggalkan raksasa.</p>
+                <img src="img/12.svg" alt="Raksasa Datang Lagi" style="width: 90%; height: auto; cursor: none;">
+            </div>
+        </div>
+
+        <!-- Halaman 8 (Ending) -->
+        <div class="page" id="p8">
+            <div class="front">
+                <p>Ayo bantu Timun Mas menyelamatkan diri!</p>
+                <div style="font-size: 4rem;">🏃‍♀️💨👹</div>
+            </div>
+            <div class="back" style="background: #6FA771; color: white;">
+                <h2>TAMAT</h2>
+                <div style="font-size: 4rem;">🌻</div>
+                <p>Timun Mas akhirnya selamat dan hidup bahagia bersama Mbok Srini.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const prevBtn = document.querySelector("#prevBtn");
+        const nextBtn = document.querySelector("#nextBtn");
+        const book = document.querySelector("#book");
+        const pages = document.querySelectorAll(".page");
+        const flipSound = document.getElementById("flipSound");
+        
+        const gameArea = document.getElementById("gameArea");
+        const plant = document.getElementById("plant");
+        const gameText = document.getElementById("gameText");
+        const gameHint = document.getElementById("gameHint");
+
+        let currentLocation = 1;
+        let numOfPapers = pages.length;
+        let maxLocation = numOfPapers + 1;
+        let gameStep = 0; 
+
+        // Fungsi memainkan suara
+        function playFlipSound() {
+            flipSound.currentTime = 0;
+            flipSound.play().catch(e => console.log("Audio play failed: ", e));
+        }
+
+        function openBook() {
+            book.style.transform = "translateX(50%)";
+        }
+
+        function closeBook(isAtBeginning) {
+            if(isAtBeginning) {
+                book.style.transform = "translateX(0%)";
+            } else {
+                book.style.transform = "translateX(100%)";
+            }
+        }
+
+        function goNextPage() {
+            if(currentLocation < maxLocation) {
+                playFlipSound();
+                const pageIndex = currentLocation - 1;
+                pages[pageIndex].classList.add("flipped");
+                pages[pageIndex].style.zIndex = currentLocation;
+                if(currentLocation === 1) openBook();
+                if(currentLocation === numOfPapers) closeBook(false);
+                currentLocation++;
+            }
+        }
+
+        function goPrevPage() {
+            if(currentLocation > 1) {
+                playFlipSound();
+                const pageIndex = currentLocation - 2;
+                pages[pageIndex].classList.remove("flipped");
+                pages[pageIndex].style.zIndex = (numOfPapers - pageIndex);
+                if(currentLocation === 2) closeBook(true);
+                if(currentLocation === maxLocation) openBook();
+                currentLocation--;
+            }
+        }
+
+        // Minigame Logic
+        function createWaterEffect(x, y) {
+            const can = document.createElement("div");
+            can.className = "watering-can";
+            can.textContent = "🚿";
+            can.style.left = (x - 20) + "px";
+            can.style.top = (y - 50) + "px";
+            gameArea.appendChild(can);
+
+            for(let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    const drop = document.createElement("div");
+                    drop.className = "water-drop";
+                    drop.style.left = (x - 30 + (Math.random() * 20)) + "px";
+                    drop.style.top = (y - 10) + "px";
+                    gameArea.appendChild(drop);
+                    setTimeout(() => drop.remove(), 600);
+                }, i * 60);
+            }
+            setTimeout(() => can.remove(), 500);
+        }
+
+        gameArea.addEventListener("click", (e) => {
+            e.stopPropagation(); 
+            const rect = gameArea.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (gameStep >= 1 && gameStep <= 3) {
+                createWaterEffect(x, y);
+            }
+
+            gameStep++;
+
+            switch(gameStep) {
+                case 1:
+                    plant.textContent = "🌱";
+                    gameText.textContent = "Benih ditanam! Ayo siram air.";
+                    gameHint.textContent = "Klik untuk menyiram";
+                    break;
+                case 2:
+                    plant.style.transform = "translateX(-50%) scale(1.2)";
+                    gameText.textContent = "Segar! Tunas mulai tumbuh. Siram lagi!";
+                    break;
+                case 3:
+                    plant.textContent = "🥒";
+                    plant.style.bottom = "45px";
+                    gameText.textContent = "Timunnya mulai terlihat! Sekali lagi!";
+                    break;
+                case 4:
+                    plant.textContent = "✨🥒✨";
+                    plant.style.bottom = "50px";
+                    plant.style.fontSize = "4.5rem";
+                    gameText.textContent = "Timun Mas sudah siap dipanen!";
+                    gameHint.textContent = "Klik untuk ulangi";
+                    break;
+                case 5:
+                    gameStep = 0;
+                    plant.textContent = "";
+                    plant.style.fontSize = "3rem";
+                    plant.style.bottom = "35px";
+                    plant.style.transform = "translateX(-50%) scale(1)";
+                    gameText.textContent = "Klik untuk menanam benih";
+                    gameHint.textContent = "Klik area tanah";
+                    break;
+            }
+        });
+
+        // Event Listeners
+        prevBtn.addEventListener("click", goPrevPage);
+        nextBtn.addEventListener("click", goNextPage);
+        
+        book.addEventListener("click", (e) => {
+            if (!gameArea.contains(e.target)) {
+                if (e.clientX > window.innerWidth / 2) {
+                    goNextPage();
+                } else {
+                    goPrevPage();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
