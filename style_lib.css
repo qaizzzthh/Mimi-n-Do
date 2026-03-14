@@ -161,6 +161,27 @@ h1 {
   to   { transform: translateX(100%); opacity: 0; }
 }
 
+.tombol-buku {
+  gap: 1rem;
+  align-items: center;
+}
+
+.mendengar, .membaca {
+  font-weight: 700;
+  width: 65%;
+  padding: 0.3rem 0;
+  border-radius: 100vw;
+}
+
+.mendengar {
+  background-color: var(--kuning);
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.membaca {
+  background-color: var(--biru-tua);
+}
+
 /* Search Section */
 .search {
   margin-top: 3rem;
