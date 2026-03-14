@@ -2,6 +2,15 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
 h1 {
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
