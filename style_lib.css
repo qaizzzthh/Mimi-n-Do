@@ -59,13 +59,17 @@ a {
   position: sticky;
   top: 0;
   flex-shrink: 0;
-  z-index: 5;
+  z-index: 5; 
   box-shadow: 0 0 1rem rgba(0,0,0,0.1);
-;
 }
 
-.navigasi img {
+.navigasi .logo-normal {
   margin-bottom: 2rem;
+  display: block;
+}
+
+.navigasi .logo-small {
+  display: none;
 }
 
 .menu {
@@ -121,9 +125,9 @@ a {
 }
 
 #main-library-container {
-    flex: 1;
-    overflow-y: auto;
-    transition: all 0.3s ease;
+  flex: 1;
+  overflow-y: auto;
+  transition: all 0.3s ease;
 }
 
 h1 {
@@ -133,23 +137,23 @@ h1 {
   margin-bottom: 1rem !important;
 }
 
+/* --- PERBAIKAN READER CONTAINER --- */
 #reader-container {
-    width: 500px;
-    height: 100vh;
-    border-left: 2px solid #e2e8f0;
-    overflow-y: auto;
-    display: none;
-    z-index: 10;
+  width: 500px;
+  height: 100vh;
+  overflow-y: auto;
+  display: none;
+  z-index: 4;
 }
 
 #reader-container.active {
-    display: block;
-    animation: slideIn 0.4s ease-out;
+  display: block;
+  animation: slideIn 0.4s ease-out;
 }
 
 @keyframes slideIn {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 }
 
 #reader-container.fade-out {
@@ -160,6 +164,7 @@ h1 {
   from { transform: translateX(0); opacity: 1; }
   to   { transform: translateX(100%); opacity: 0; }
 }
+/* --- AKHIR PERBAIKAN --- */
 
 .tombol-buku {
   gap: 1rem;
@@ -171,6 +176,8 @@ h1 {
   width: 65%;
   padding: 0.3rem 0;
   border-radius: 100vw;
+  cursor: pointer; /* Pastikan kursor pointer */
+  pointer-events: auto !important;
 }
 
 .mendengar {
@@ -354,7 +361,6 @@ h1 {
   aspect-ratio: 2/3;
   object-fit: cover;
   margin-bottom: 0.5rem;
-  /* Fallback jika img tidak ada */
 }
 
 .book-card p {
@@ -369,12 +375,6 @@ h1 {
   overflow: hidden;
 }
 
-/* Icons */
-/*.material-symbols-outlined {
-  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
-  color: var(--biru-tua);
-}*/
-
 /* Responsive Mobile */
 @media (max-width: 640px) {
   body {
@@ -383,9 +383,9 @@ h1 {
 
   .navigasi {
     width: 100%;
-    height: 60px;
+    height: 3.5rem;
     flex-direction: row;
-    padding: 0 1rem;
+    padding: 0 10px;
     justify-content: space-between;
     position: fixed;
   }
@@ -393,6 +393,16 @@ h1 {
   .navigasi svg {
     margin-bottom: 0;
     width: 40px;
+  }
+  
+  .navigasi .logo-normal {
+    display: none;
+  }
+
+  .navigasi .logo-small {
+    display: block;
+    height: 60%;
+    width: auto;
   }
 
   .menu {
@@ -412,6 +422,20 @@ h1 {
 
   .container {
     padding: 5rem 1.5rem 1.5rem 1.5rem;
+  }
+
+  .grid-mode .book-card {
+    min-width: 140px;
+    max-width: 140px;
+  }
+
+  body:has(#reader-container.active) .container {
+    display: none;
+  }
+
+  #reader-container {
+    width: 100%;
+    padding-top: 5.5rem;
   }
 
   .grid-mode .book-card {

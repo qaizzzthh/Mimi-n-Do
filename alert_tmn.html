@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* Transisi untuk animasi pop-up */
+        .modal-container {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.3/dist/dotlottie-wc.js" type="module"></script>
+</head>
+
+<body class="bg-transparent flex items-center justify-center min-h-screen p-4">
+
+    <!-- Modal Container -->
+    <!-- max-w-sm (mobile) -> max-w-4xl (laptop) -->
+    <!-- flex-col (mobile) -> flex-row (laptop) -->
+    <div
+        class="modal-container bg-white w-full max-w-sm sm:max-w-4xl rounded-[2rem] shadow-2xl overflow-hidden relative p-8 sm:p-10 flex flex-col sm:flex-row gap-8 items-center transform transition-all animate-in zoom-in duration-300">
+
+        <!-- Tombol Close (Pojok Kanan Atas) -->
+        <button onclick="window.parent.closeAlert()"
+            class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <!-- Bagian Visual (Sesuai kode awal Anda) -->
+        <div class="w-full sm:w-1/3 flex justify-center">
+            <img src="img/timun-mas.svg" alt="Timun Mas Cover" class="w-[40%] sm:w-full h-auto">
+        </div>
+
+        <!-- Bagian Konten (Teks & Tombol) -->
+        <div class="w-full sm:w-2/3 flex flex-col text-center sm:text-left">
+            <h1 class="text-3xl sm:text-5xl font-bold text-[#3a5298] mb-4">
+                Timun Mas
+            </h1>
+
+            <p class="text-[#5c6b8a] text-sm sm:text-lg leading-relaxed mb-8">
+                Mbok Srini mendapat bayi cantik dari dalam buah mentimun emas pemberian raksasa. Namun, saat dewasa, ia
+                harus lari menyelamatkan diri dari kejaran sang raksasa. Berbekal 4 bungkusan ajaib yang bisa mengubah
+                hutan menjadi lautan dan lumpur, dimulailah aksi kejar-kejaran paling seru demi memenangkan
+                kebebasannya!
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center sm:justify-start">
+                <!-- Tombol Dengarkan (Kuning) -->
+                <audio id="klikSuara"
+                    src="img/Kisah Timun Mas dan Raksasa _ Dongeng Anak Bahasa Indonesia _ Cerita Rakyat Jawa Tengah.mp3"></audio>
+                <button
+                    class="bg-[#ffcc4d] hover:bg-[#ffbf20] text-white px-8 py-3 rounded-full font-bold flex items-center justify-center gap-2 transition-all transform active:scale-95 shadow-lg"
+                    onclick="playSuara()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Dengarkan
+                </button>
+
+                <!-- Tombol Membaca (Biru) -->
+                <button
+                    class="bg-[#3a5298] hover:bg-[#2d417a] text-white px-8 py-3 rounded-full font-bold flex items-center justify-center gap-2 transition-all transform active:scale-95 shadow-lg"
+                    onclick="location.href='book.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    Membaca
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function playSuara() {
+            const audio = document.getElementById("klikSuara");
+            audio.play();
+        }
+    </script>
+</body>
+
+</html>

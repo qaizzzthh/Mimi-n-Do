@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="img/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet">
@@ -36,7 +37,7 @@
                     Dari cerita sebelum tidur hingga petualangan seru di siang hari, semua hadir dalam satu tempat yang
                     nyaman untuk anak.
                 </p>
-                <a class="tombol" href="#">Mulai Membaca</a>
+                <a class="tombol" href="#section-baca">Mulai Membaca</a>
             </div>
         </div>
         <img class="cloud" src="img/awan-1.png" />
@@ -50,18 +51,18 @@
                 <p class="teks">
                     Tidak hanya membaca, kamu juga bisa mendengarkan cerita serta bermain minigame seru di dalamnya.
                 </p>
-                <a class="tombol" id="smooth-link" href="../Library/library.html">Jelajahi Cerita</a>
+                <a class="tombol" id="smooth-link" href="library.html">Jelajahi Cerita</a>
             </div>
             <div class="buku-cerita">
                 <a class="timun-mas" href="#popup-timunmas">
                     <img src="img/timun-mas.png" alt="Timun Mas">
                     <p class="judul-cerita">Timun Mas</p>
                 </a>
-                <a class="tari-guel" href="#popup-tariguel">
+                <a class="bukan-timun" href="#popup-tariguel">
                     <img src="img/tari-guel.png" alt="Asal-Usul Tari Guel">
                     <p class="judul-cerita">Asal-Usul Tari Guel</p>
                 </a>
-                <a class="ibuanari" href="#popup-ibuanari">
+                <a class="bukan-timun" href="#popup-ibuanari">
                     <img src="img/ibuanari.png" alt="Ibuanari dan Sagu Bulan">
                     <p class="judul-cerita">Ibuanari dan Sagu Bulan</p>
                 </a>
@@ -175,6 +176,13 @@
         </div>
     </section>
 
+    <!-- Tambahkan ini di bagian paling bawah sebelum tag -->
+    <div id="alert-overlay"
+        style="display: none; position: fixed; inset: 0; z-index: 1000001; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); align-items: center; justify-content: center;">
+        <iframe id="alert-frame" src="alert.html"
+            style="width: 100%; height: 100%; border: none; background: transparent;"></iframe>
+    </div>
+
     <script>
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll(".navigasi .menu a");
@@ -210,6 +218,38 @@
             });
         });
 
+        const overlay = document.getElementById('alert-overlay');
+        const frame = document.getElementById('alert-frame');
+
+        function showAlert(src) {
+            frame.src = src;              // set iframe sesuai kondisi
+            overlay.style.display = 'flex'; // tampilkan overlay
+        }
+
+        function closeAlert() {
+            overlay.style.display = 'none';
+            frame.src = "";               // kosongkan src biar bersih
+        }
+
+        // klik di luar iframe → tutup
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) {
+                closeAlert();
+            }
+        });
+
+        // listener untuk semua link
+        document.querySelectorAll('a.bukan-timun, a.timun-mas').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault(); // cegah redirect
+
+                if (link.classList.contains('bukan-timun')) {
+                    showAlert('alert.html');
+                } else if (link.classList.contains('timun-mas')) {
+                    showAlert('alert_tmn.html');
+                }
+            });
+        });
     </script>
 </body>
 
