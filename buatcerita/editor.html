@@ -1,0 +1,79 @@
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cerita Ku</title>
+
+<link rel="stylesheet" href="globals.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<header class="header">
+
+<!-- tombol back -->
+<div class="back-btn" onclick="tanyaSimpan()">
+<img src="img/imgback.png">
+</div>
+
+</header>
+
+   <!-- Icon kotak -->
+<div class="kotak-icon">
+  <h1 class="judul-kotak">
+    Cerita
+  </h1>
+</div> 
+
+<div class="popup-konfirmasi" id="popupKonfirmasi">
+  <div class="popup-box">
+    
+    <img src="img/imgbingung.png" class="popup-img2">
+
+    <h2>Teks ingin disimpan?</h2>
+
+    <div class="popup-btn">
+      <button class="btn-tidak" onclick="tidakSimpan()">Tidak</button>
+      <button class="btn-ya" onclick="yaSimpan()">Ya</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- EDITOR -->
+<div class="editor-box">
+
+  <div class="silang-icon">
+    <img src="img/imgsilang.png">
+  </div>
+
+  <!-- PENCIL ICON -->
+  <div class="pencil-icon">
+    <img src="img/pencil.png">
+  </div>
+
+  <!-- SIMPAN -->
+  <div class="simpan-btn" onclick="simpanCerita()">
+    <img src="img/simpan.png" alt="Simpan">
+  </div>
+
+  <input id="judul" class="input-judul" type="text" placeholder="Tulis judul cerita...">
+
+  <textarea id="isi" class="input-cerita" placeholder="Tulis cerita kamu..."></textarea>
+
+</div>
+
+<div class="popup-simpan" id="popupSimpan">
+  <img src="img/imgberhasil.png" class="popup-img">
+</div>
+
+<script src="script.js"></script>
+</body>
+
+
+</html>

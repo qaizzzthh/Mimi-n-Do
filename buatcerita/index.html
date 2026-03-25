@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Cerita Ku</title>
+
+  <!-- GLOBAL CSS -->
+  <link rel="stylesheet" href="globals.css">
+
+  <!-- STYLE CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<div class="kotak-icon">
+  <h1 class="judul-kotak">
+    Buat Cerita Kamu > cerita ku
+  </h1>
+</div> 
+
+<body>
+
+<div class="container">
+
+<!-- Header -->
+<header class="header">
+
+<!-- Tombol Back -->
+<div class="back-btn" onclick="keBuat()">
+<img src="img/imgback.png">
+</div>
+
+</header>
+
+<!-- KOTAK PUTIH -->
+<div class="isi-box">
+
+  <!-- tombol hapus (KANAN) -->
+  <div class="apus-icon" onclick="aktifkanHapus()">
+    <img src="img/imgapus.png">
+  </div>
+
+  <!-- tombol tambah (KIRI) -->
+  <div class="tambah-icon" onclick="tambahCerita()">
+    <img src="img/imgtambah.png">
+  </div>
+
+  <!-- ISI LIST -->
+  <div class="cerita-container" id="ceritaList">
+    <!-- dari JS -->
+  </div>
+
+  <!-- PAGINATION -->
+<div class="pagination">
+  <button onclick="prevPage()">◀</button>
+  <span id="pageNumber">1</span>
+  <button onclick="nextPage()">▶</button>
+</div>
+
+   <!-- awan kanan -->
+  <div class="awankanan-icon">
+    <img src="img/awankanan.png">
+  </div>
+
+     <!-- awan kiri -->
+  <div class="awankiri-icon">
+    <img src="img/awankiri.png">
+  </div>
+
+</div>
+
+<!-- LOADING -->
+<div class="loading-box" id="loadingUpload">
+  <img src="img/loading.png" class="loading-img">
+</div>
+
+<!-- POPUP GAMBAR -->
+<div class="popup-persen" id="popupPersen">
+  <img src="img/popuppersen.png" style="width:200px;">
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimi n Do</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="../img/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigasi -->
+    <nav class="navigasi">
+        <img src="../img/logo-mimindo.png" alt="Logo Mimi n Do">
+        <div class="menu">
+            <a href="#section-home">Home</a>
+            <a href="#section-baca">Baca</a>
+            <a href="#section-tulis">Tulis</a>
+            <a href="#section-tentang">Tentang</a>
+            <a class="Masuk" href="#" id="btnAuth">Masuk</a>
+        </div>
+    </nav>
+
+    <!-- Section 1: Home -->
+    <section class="section-1-home" id="section-home">
+        <div class="matahari"></div>
+        <div class="isi">
+            <h1 data-aos="fade-down" data-aos-duration="800" class="headline-section-1">Baca, Main, dan Berpetualang dalam Setiap Cerita</h1>
+            <div class="caption-dan-button">
+                <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="teks">
+                    Dari cerita sebelum tidur hingga petualangan seru di siang hari, semua hadir dalam satu tempat yang
+                    nyaman untuk anak.
+                </p>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                    <a class="tombol" href="#section-baca">Mulai Membaca</a>
+                </div>
+            </div>
+        </div>
+        <img class="cloud" src="../img/awan-1.png" />
+    </section>
+
+    <!-- Section 2: Baca -->
+    <section class="section-2-baca" id="section-baca">
+        <div class="isi">
+            <div class="isi-section-2">
+                <h2 data-aos="fade-right" data-aos-duration="400" data-aos-offset="0" data-aos-delay="0" class="headline-section-2">Temukan Cerita Favoritmu</h2>
+                <p data-aos="fade-right" data-aos-duration="400" data-aos-offset="0" data-aos-delay="0" class="teks">
+                    Tidak hanya membaca, kamu juga bisa mendengarkan cerita serta bermain minigame seru di dalamnya.
+                </p>
+                <div data-aos="fade-right" data-aos-duration="400" data-aos-offset="0" data-aos-delay="200">
+                    <a class="tombol" id="smooth-link" href="../Library/library.html">Jelajahi Cerita</a>
+                </div>
+            </div>
+            <div class="buku-cerita">
+                <div data-aos="fade-up" data-aos-duration="400" data-aos-offset="0" data-aos-delay="0">
+                    <a class="timun-mas" href="#popup-timunmas">
+                        <img src="../img/timun-mas.png" alt="Timun Mas">
+                        <p class="judul-cerita">Timun Mas</p>
+                    </a>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="400" data-aos-offset="0" data-aos-delay="200">
+                    <a class="bukan-timun" href="#popup-tariguel">
+                        <img src="../img/tari-guel.png" alt="Asal-Usul Tari Guel">
+                        <p class="judul-cerita">Asal-Usul Tari Guel</p>
+                    </a>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="400" data-aos-offset="0" data-aos-delay="400">
+                    <a class="bukan-timun" href="#popup-ibuanari">
+                        <img src="../img/ibuanari.png" alt="Ibuanari dan Sagu Bulan">
+                        <p class="judul-cerita">Ibuanari dan Sagu Bulan</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <img src="../img/awan-2.png" alt="Awan" class="cloud-2" />
+    </section>
+
+    <!-- Section 3: Tulis -->
+    <section class="section-3-tulis" id="section-tulis">
+        <img src="../img/alam.png" alt="Alam" class="alam">
+        <div data-aos="zoom-in" data-aos-offset="0" data-aos-duration="400" class="caption-section-3">
+            <h2 data-aos="fade-right" data-aos-duration="400" data-aos-offset="0" data-aos-delay="0" class="headline-section-3">Tulis Ceritamu Sekarang</h2>
+            <p data-aos="fade-right" data-aos-duration="400" data-aos-offset="0" data-aos-delay="100" class="teks">
+                Tuangkan imajinasimu ke dalam sebuah karya yang dapat dinikmati banyak orang.
+            </p>
+            <div data-aos="fade-right" data-aos-duration="400" data-aos-offset="0" data-aos-delay="150">
+                <a class="tombol" href="../buatcerita/index.html">Mulai Menulis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Tentang -->
+    <section class="section-4-tentang" id="section-tentang">
+        <div class="about">
+            <img src="../img/awan-4.png" alt="Awan" class="cloud-4" />
+            <div class="konten-about">
+                <div class="caption-about">
+                    <h2 data-aos="fade-right" data-aos-offset="0" data-aos-duration="800" class="headline-about">Cerita di Balik <span class="mimi">Mimi </span><span class="ndo">&
+                            Do</span></h2>
+                    <p data-aos="fade-right" data-aos-offset="0" data-aos-duration="800" data-aos-delay="200" class="teks">
+                        <span class="mimi">Mimi</span> <span class="ndo">& Do</span> adalah ruang cerita interaktif
+                        untuk anak. Kami menghadirkan dongeng yang bisa dibaca, didengar, dimainkan, dan diciptakan
+                        kembali oleh setiap anak.
+                    </p>
+                </div>
+                <div data-aos="fade-left" data-aos-duration="800" data-aos-offset="0">
+                    <img src="../img/logo.png" alt="Mimi & Do" class="logo-mimindo">
+                </div>
+            </div>
+        </div>
+        <div class="vmisi">
+            <img src="../img/langit.png" alt="Udara" class="langit">
+            <div class="konten-vmisi">
+                <h2 data-aos="fade-down" data-aos-offset="0" data-aos-duration="400" class="mimpi">Mimpi Kami</h2>
+                <div class="isi">
+                    <div data-aos="fade-up" data-aos-offset="0" data-aos-duration="800" data-aos-delay="100" class="misi1">
+                        <div class="ikon">
+                            <img src="../img/buku.png" alt="Buku" class="ikon-buku">
+                        </div>
+                        <div class="isi-misi">
+                            <h3 class="headline-misi-1">Meningkatkan Literasi Anak</h3>
+                            <p class="teks">Membantu anak suka membaca melalui cerita yang menyenangkan dan mudah
+                                diakses</p>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-offset="0" data-aos-duration="800" data-aos-delay="200" class="misi2">
+                        <div class="ikon">
+                            <img src="../img/palet.png" alt="Palet" class="ikon-palet">
+                        </div>
+                        <div class="isi-misi">
+                            <h3 class="headline-misi-2">Menumbuhkan Imajinasi & Kreativitas Anak</h3>
+                            <p class="teks">Mendorong anak untuk berani bermimpi, berpetualang, dan menulis cerita
+                                mereka sendiri</p>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-offset="0" data-aos-duration="800" data-aos-delay="300" class="misi3">
+                        <div class="ikon">
+                            <img src="../img/shield.png" alt="Shield" class="ikon-shield">
+                        </div>
+                        <div class="isi-misi">
+                            <h3 class="headline-misi-3">Menciptakan Ruang Aman & Positif</h3>
+                            <p class="teks">Menyediakan platform yang nyaman tanpa ditraksi dan komentar negatif</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="kontak">
+            <img src="../img/awan-end.png" alt="Awan" class="cloud-end">
+            <div class="isi">
+                <div class="kiri">
+                    <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="0" data-aos-offset="0" class="logo">
+                        <img src="../img/logo.png" alt="Mimi & Do" class="logo-mimindo-end">
+                        <div class="brand">
+                            <p class="mimi">Mimi</p>
+                            <p class="ndo">& Do</p>
+                        </div>
+                    </div>
+                    <div class="sosmed">
+                        <h3 data-aos="fade-right" data-aos-duration="800" data-aos-delay="0" data-aos-offset="0" class="gabung">Gabung Komunitas Kami</h3>
+                        <div class="ikon-sosmed">
+                            <img data-aos="fade-up" data-aos-duration="400" data-aos-delay="0" data-aos-offset="0" src="../img/x.png" alt="X" class="ikon-x">
+                            <img data-aos="fade-up" data-aos-duration="400" data-aos-delay="100" data-aos-offset="0" src="../img/tiktok.png" alt="TikTok" class="ikon-tiktok">
+                            <img data-aos="fade-up" data-aos-duration="400" data-aos-delay="200" data-aos-offset="0" src="../img/discord.png" alt="Discord" class="ikon-discord">
+                            <img data-aos="fade-up" data-aos-duration="400" data-aos-delay="300" data-aos-offset="0" src="../img/instagram.png" alt="Instagram" class="ikon-instagram">
+                        </div>
+                    </div>
+                </div>
+                <div class="kanan">
+                    <h2 data-aos="fade-left" data-aos-duration="800" data-aos-delay="0" data-aos-offset="0" class="headline-kontak">Ada Pertanyaan?</h2>
+                    <p data-aos="fade-left" data-aos-duration="800" data-aos-delay="0" data-aos-offset="0" class="teks">Punya masukan, ingin kerja sama atau ingin bertanya tentang cerita di Mimi & Do?
+                        Kirimkan pesanmu kepada kami.</p>
+                    <form data-aos="fade-left" data-aos-duration="800" data-aos-delay="0" data-aos-offset="0" action="index.html">
+                        <input type="text" placeholder="Masukkan Nama" class="input-nama" required>
+                        <input type="email" placeholder="Masukkan Email" class="input-email" required>
+                        <textarea placeholder="Pesanmu..." class="input-pesan" required></textarea>
+                        <button type="submit" class="tombol">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+            <footer>
+                <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="0" data-aos-offset="0" class="copyright">© 2026 Mimi & Do | Tim Cihuy | Tech Soft WEB Design Polindra 2026.</p>
+            </footer>
+        </div>
+    </section>
+
+    <!-- Login/Register Overlay -->
+    <div id="auth-overlay"
+        style="display: none; position: fixed; inset: 0; z-index: 100; background: transparent; align-items: center; justify-content: center;">
+        <iframe id="auth-frame" src=""
+            style="width: 100%; height: 100%; border: none; background: transparent;"></iframe>
+    </div>
+
+    <!-- Alert Overlay -->
+    <div id="alert-overlay"
+        style="display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); align-items: center; justify-content: center;">
+        <iframe id="alert-frame" src="../Alert/alert.html"
+            style="width: 100%; height: 100%; border: none; background: transparent;"></iframe>
+    </div>
+
+    <script>
+        // ============================================
+        // AUTH STATE MANAGEMENT
+        // ============================================
+
+        const btnAuth = document.getElementById('btnAuth');
+        let currentUser = null;
+
+        // Check login status on page load
+        function checkLoginStatus() {
+            const user = localStorage.getItem('mimindo_user');
+            if (user) {
+                currentUser = JSON.parse(user);
+                updateAuthButton(true);
+            } else {
+                currentUser = null;
+                updateAuthButton(false);
+            }
+        }
+
+        // Update Auth Button UI
+        function updateAuthButton(isLoggedIn) {
+            if (isLoggedIn && currentUser) {
+                // Change button to profile link
+                btnAuth.textContent = currentUser.username;
+                btnAuth.href = '../Profil/profil.html';
+                btnAuth.classList.add('logged-in');
+                btnAuth.onclick = null;
+
+                // Add avatar icon before text (optional)
+                btnAuth.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                ${currentUser.username}
+            `;
+            } else {
+                // Reset to login button
+                btnAuth.textContent = 'Masuk';
+                btnAuth.href = '#';
+                btnAuth.classList.remove('logged-in');
+                btnAuth.onclick = function (e) {
+                    e.preventDefault();
+                    showAuth('../Profil/login.html');
+                };
+            }
+        }
+
+        // Save user to localStorage
+        function saveUser(username) {
+            const user = {
+                username: username,
+                uid: generateUID(),
+                loginTime: new Date().toISOString()
+            };
+            localStorage.setItem('mimindo_user', JSON.stringify(user));
+            currentUser = user;
+            return user;
+        }
+
+        // Generate random UID
+        function generateUID() {
+            return Math.floor(10000000 + Math.random() * 90000000).toString();
+        }
+
+        // ============================================
+        // AUTH MODAL FUNCTIONALITY (LOGIN & REGISTER)
+        // ============================================
+
+        const authOverlay = document.getElementById('auth-overlay');
+        const authFrame = document.getElementById('auth-frame');
+
+        // Show Auth Modal
+        function showAuth(page) {
+            authFrame.src = page;
+            authOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Auth Modal
+        function closeAuth() {
+            authOverlay.style.display = 'none';
+            authFrame.src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Click di luar iframe → tutup
+        authOverlay.addEventListener('click', function (e) {
+            if (e.target === authOverlay) {
+                closeAuth();
+            }
+        });
+
+        // Listener pesan dari iframe login/register
+        window.addEventListener('message', function (e) {
+            // Close auth modal
+            if (e.data === 'closeAuth') {
+                closeAuth();
+            }
+
+            // Open Login page
+            if (e.data === 'openLogin') {
+                authFrame.src = '../Profil/login.html';
+            }
+
+            // Open Register page
+            if (e.data === 'openRegister') {
+                authFrame.src = '../Profil/register.html';
+            }
+
+            // Login success
+            if (e.data && e.data.type === 'loginSuccess') {
+                saveUser(e.data.username);
+                updateAuthButton(true);
+                closeAuth();
+
+                // Show welcome message
+                showNotification('Selamat datang, ' + e.data.username + '!');
+            }
+
+            // Register success
+            if (e.data && e.data.type === 'registerSuccess') {
+                saveUser(e.data.username);
+                updateAuthButton(true);
+                closeAuth();
+
+                // Show success message
+                showNotification('Akun berhasil dibuat! Selamat datang, ' + e.data.username + '!');
+            }
+        });
+
+        // Simple notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #10b981;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 99999;
+            animation: slideInRight 0.3s ease;
+        `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(function () {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(function () {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const notificationStyles = document.createElement('style');
+        notificationStyles.textContent = `
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        .Masuk.logged-in {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+    `;
+        document.head.appendChild(notificationStyles);
+
+        // ============================================
+        // EXISTING FUNCTIONALITY
+        // ============================================
+
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".navigasi .menu a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((a) => {
+                a.classList.remove("active");
+                if (a.getAttribute("href") === `#${current}`) {
+                    a.classList.add("active");
+                }
+            });
+        });
+
+        document.querySelectorAll('#smooth-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.body.classList.add('fade-out');
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 500);
+            });
+        });
+
+        const alertOverlay = document.getElementById('alert-overlay');
+        const alertFrame = document.getElementById('alert-frame');
+
+        function showAlert(src) {
+            alertFrame.src = src;
+            alertOverlay.style.display = 'flex';
+        }
+
+        function closeAlert() {
+            alertOverlay.style.display = 'none';
+            alertFrame.src = "";
+        }
+
+        alertOverlay.addEventListener('click', function (e) {
+            if (e.target === alertOverlay) {
+                closeAlert();
+            }
+        });
+
+        document.querySelectorAll('a.bukan-timun, a.timun-mas').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                if (link.classList.contains('bukan-timun')) {
+                    showAlert('../Alert/alert.html');
+                } else if (link.classList.contains('timun-mas')) {
+                    showAlert('../Alert/alert_tmn.html');
+                }
+            });
+        });
+
+        // ============================================
+        // INITIALIZE
+        // ============================================
+
+        // Check login status when page loads
+        checkLoginStatus();
+    </script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

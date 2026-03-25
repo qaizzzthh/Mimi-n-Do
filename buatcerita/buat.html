@@ -1,0 +1,81 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Buat Cerita</title>
+
+  <!-- GLOBAL CSS -->
+  <link rel="stylesheet" href="globals.css">
+
+  <!-- STYLE CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOADING -->
+<div id="loadingUpload" class="loading-box">
+  <img src="img/imgloading.png" class="loading-img">
+</div>
+
+<!-- POPUP PERSEN -->
+<div id="popupPersen" class="popup-persen">
+  <img src="img/popuppersen.png" class="popup-img">
+</div>
+
+  <!-- Background -->
+  <div class="daun-icon">
+    <img src="img/imgdaun.png" alt="Background Daun & Angin">
+  </div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      
+      <!-- Tombol Back -->
+    <div class="back-btn" onclick="kehome()">
+  <img src="img/imgback.png" alt="Back">
+</div>
+
+
+    <!-- Icon Library -->
+    <div class="library-icon" onclick="bukaLibrary()">
+<img src="img/imgfile.png">
+</div>
+
+    <!-- Icon kotak -->
+<div class="kotak-icon">
+  <h1 class="judul-kotak">
+    Buat Cerita Kamu
+  </h1>
+</div> 
+
+
+    <!-- Upload Area -->
+<section class="upload-box">
+
+<input type="file" id="fileInput" hidden>
+
+<button class="choose-btn" onclick="pilihFile()">Choose File</button>
+
+<p>or drag and drop file here</p>
+
+<p id="namaFile"></p>
+
+</section>
+
+
+    <!-- Upload Button -->
+ <div class="upload-button">
+<button onclick="uploadFile()">Upload</button>
+</div>
+
+  </div>
+
+  <div class="popup-simpan" id="popupSimpan">
+  <img src="img/imgberhasil.png" class="popup-img">
+</div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

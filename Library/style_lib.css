@@ -63,6 +63,16 @@ a {
   box-shadow: 0 0 1rem rgba(0,0,0,0.1);
 }
 
+.navigasi p {
+  display: none;
+}
+
+.hover-nav {
+  display: flex;
+  flex-direction: row;
+}
+
+
 .navigasi .logo-normal {
   margin-bottom: 2rem;
   display: block;
