@@ -382,35 +382,21 @@ function uploadDariIndex(index){
   let loading = document.getElementById("loadingUpload")
   let popup = document.getElementById("popupPersen")
 
-  // tampilkan loading
   loading.style.display = "flex"
 
   setTimeout(()=>{
 
-    // hilangkan loading
     loading.style.display = "none"
-
-    // tampilkan popup
     popup.style.display = "flex"
 
-    // klik dimana saja tutup popup
     popup.onclick = function(){
       popup.style.display = "none"
     }
 
-    // =========================
-    // 🔥 AMBIL DATA CERITA
-    // =========================
     let data = cerita[index]
 
-    // =========================
-    // 🔥 AMBIL DATA BOOKS
-    // =========================
     let books = JSON.parse(localStorage.getItem("books")) || []
 
-    // =========================
-    // 🔥 TAMBAH KE LIBRARY
-    // =========================
     let newBook = {
       id: Date.now(),
       title: data.judul,
@@ -422,10 +408,12 @@ function uploadDariIndex(index){
 
     localStorage.setItem("books", JSON.stringify(books))
 
-    // =========================
-    // 🔥 REFRESH LIBRARY SAAT DIBUKA
-    // =========================
     console.log("Berhasil upload:", newBook)
+
+    // 🔥 PINDAH KE LIBRARY
+    setTimeout(()=>{
+      window.location.href = "../library/library.html"
+    },1000)
 
   },2000)
 }

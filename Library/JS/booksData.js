@@ -1,4 +1,4 @@
-localStorage.removeItem("books");
+
 
 const initialBooks = [
   {
