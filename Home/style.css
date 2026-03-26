@@ -129,7 +129,7 @@ h3 {
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
   color: rgba(58, 82, 152, 0.5);
-  font-size: clamp(12px, 3vw, 20px);
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
   text-decoration: none;
   /* Menghilangkan garis bawah default link */
   cursor: pointer;
@@ -152,6 +152,7 @@ h3 {
   border-radius: 500px;
   border-bottom: none;
   font-weight: 700;
+  width: fit-content;
 }
 
 .navigasi .menu a.Masuk:hover {
@@ -166,6 +167,12 @@ h3 {
   color: var(--biru-tua);
   font-weight: 700;
   border-bottom: 3px solid var(--biru-tua);
+}
+
+.Masuk .material-symbols-outlined {
+  font-size: clamp(1.8rem, 2vw, 2rem);
+  vertical-align: middle;
+  line-height: 1;
 }
 
 /* Section 1: Home */
@@ -256,6 +263,7 @@ h3 {
   z-index: 20;
   gap: 5rem;
   flex-wrap: wrap;
+  padding: 0 3rem;
 }
 
 .section-2-baca .isi-section-2 {
@@ -789,6 +797,10 @@ h3 {
     width: auto;
   }
 
+  .navigasi .menu a.Masuk {
+    padding: 0.3rem;
+  }
+
   .caption-dan-button {
     align-items: center;
     text-align: center;
@@ -804,6 +816,10 @@ h3 {
   .kontak .isi {
     flex-direction: column;
     text-align: center;
+  }
+
+  .section-2-baca .isi-section-2 {
+    padding: 0 1rem;
   }
 
   .section-2-baca .isi-section-2,
