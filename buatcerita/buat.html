@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buat Cerita - Mimi n Do</title>
+  <title>Mimi n Do - Buat Cerita</title>
+  <link rel="icon" type="image/png" href="../img/logo.png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
@@ -94,17 +95,17 @@
 
         <button class="choose-btn" id="chooseFileBtn">
           <span class="material-symbols-outlined">upload_file</span>
-          Choose File
+          Pilih file
         </button>
 
-        <p class="upload-hint">or drag and drop file here</p>
+        <p class="upload-hint">Atau geser dan letakan disini</p>
 
         <p id="namaFile" class="file-name"></p>
       </div>
 
       <button class="upload-action-btn" id="uploadActionBtn">
         <span class="material-symbols-outlined">cloud_upload</span>
-        Upload
+        Mengunggah
       </button>
 
     </section>
@@ -132,6 +133,11 @@
   <div id="popupLogin" style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); align-items: center; justify-content: center;">
     <img src="img/haruslogin.png" class="popup-img" alt="Harus Login" style="cursor: pointer; max-width: 400px; animation: popupAnim 0.3s ease;">
   </div>
+
+  <!-- Popup Belum Pilih File -->
+<div class="popup-file" id="popupFile">
+  <img src="img/pilihfile.png" class="popup-img" alt="Pilih file dulu">
+</div>
 
   <!-- Login/Register Overlay -->
   <div id="auth-overlay"
