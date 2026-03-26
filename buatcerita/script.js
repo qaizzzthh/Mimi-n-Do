@@ -215,10 +215,10 @@ function pilihFile() {
 function uploadFile() {
   localStorage.setItem("asalHalaman", "buat");
 
-  if (!fileTerpilih) {
-    alert("Pilih file dulu!");
-    return;
-  }
+ if (!fileTerpilih) {
+  tampilkanPopup("popupFile");
+  return;
+}
 
   let reader = new FileReader();
 
@@ -294,6 +294,14 @@ function tampilkanPopup(id) {
   popup.onclick = function () {
     popup.style.display = "none";
   };
+}
+
+const popupFile = document.getElementById("popupFile");
+
+if (popupFile) {
+  popupFile.addEventListener("click", function () {
+    popupFile.style.display = "none";
+  });
 }
 
 // ==================== INIT ====================
