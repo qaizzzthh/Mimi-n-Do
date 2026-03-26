@@ -74,7 +74,8 @@
       </button>
 
       <!-- Tombol Library -->
-      <button class="library-btn" onclick="bukaLibrary()" aria-label="Buka Library">
+      <!-- Hapus inline onclick, akan dihandle via script -->
+      <button class="library-btn" aria-label="Buka Library">
         <img src="img/imgfile.png" alt="Library">
       </button>
 
@@ -88,10 +89,11 @@
     <!-- Upload Section -->
     <section class="upload-section">
 
-      <div class="upload-box">
+      <!-- Hapus inline onclick di dalamnya, handle via script -->
+      <div class="upload-box" id="uploadBoxArea">
         <input type="file" id="fileInput" hidden accept=".txt,.doc,.docx,.pdf">
 
-        <button class="choose-btn" onclick="pilihFile()">
+        <button class="choose-btn" id="chooseFileBtn">
           <span class="material-symbols-outlined">upload_file</span>
           Choose File
         </button>
@@ -101,7 +103,7 @@
         <p id="namaFile" class="file-name"></p>
       </div>
 
-      <button class="upload-action-btn" onclick="uploadFile()">
+      <button class="upload-action-btn" id="uploadActionBtn">
         <span class="material-symbols-outlined">cloud_upload</span>
         Upload
       </button>
@@ -133,7 +135,7 @@
     <iframe id="auth-frame" src="" style="width: 100%; height: 100%; border: none; background: transparent;"></iframe>
   </div>
 
-  <!-- Script -->
+  <!-- Script Utama -->
   <script src="script.js"></script>
 
   <script>
@@ -159,13 +161,11 @@
     // Update Auth Button UI
     function updateAuthButton(isLoggedIn) {
       if (isLoggedIn && currentUser) {
-        // Change button to profile link
         btnAuth.textContent = currentUser.username;
         btnAuth.href = '../Profil/profil.html';
         btnAuth.classList.add('logged-in');
         btnAuth.onclick = null;
 
-        // Add avatar icon before text (optional)
         btnAuth.innerHTML = `
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -173,7 +173,6 @@
                 ${currentUser.username}
             `;
       } else {
-        // Reset to login button
         btnAuth.textContent = 'Masuk';
         btnAuth.href = '#';
         btnAuth.classList.remove('logged-in');
@@ -231,38 +230,29 @@
 
     // Listener pesan dari iframe login/register
     window.addEventListener('message', function (e) {
-      // Close auth modal
       if (e.data === 'closeAuth') {
         closeAuth();
       }
 
-      // Open Login page
       if (e.data === 'openLogin') {
         authFrame.src = '../Profil/login.html';
       }
 
-      // Open Register page
       if (e.data === 'openRegister') {
         authFrame.src = '../Profil/register.html';
       }
 
-      // Login success
       if (e.data && e.data.type === 'loginSuccess') {
         saveUser(e.data.username);
         updateAuthButton(true);
         closeAuth();
-
-        // Show welcome message
         showNotification('Selamat datang, ' + e.data.username + '!');
       }
 
-      // Register success
       if (e.data && e.data.type === 'registerSuccess') {
         saveUser(e.data.username);
         updateAuthButton(true);
         closeAuth();
-
-        // Show success message
         showNotification('Akun berhasil dibuat! Selamat datang, ' + e.data.username + '!');
       }
     });
@@ -312,6 +302,88 @@
         }
     `;
     document.head.appendChild(notificationStyles);
+
+    // ============================================
+    // RESTRICT ACCESS FOR NON-LOGGED IN USERS
+    // ============================================
+
+    // Fungsi untuk mengecek login sebelum aksi
+    function checkLoginBeforeAction(actionName, callback) {
+      if (!currentUser) {
+        alert('Anda harus login terlebih dahulu untuk ' + actionName + '!');
+        showAuth('../Profil/login.html'); // Opsional: langsung buka login
+        return false;
+      }
+      if (callback) callback();
+      return true;
+    }
+
+    // 1. Tombol Library
+    const libraryBtn = document.querySelector('.library-btn');
+    if (libraryBtn) {
+      libraryBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (checkLoginBeforeAction('membuka library')) {
+          // Panggil fungsi asli dari script.js
+          if (typeof bukaLibrary === 'function') {
+            bukaLibrary();
+          } else {
+            window.location.href = 'index.html';
+          }
+        }
+      });
+    }
+
+    // 2. Area Upload Box (Klik mana saja)
+    const uploadBoxArea = document.getElementById('uploadBoxArea');
+    if (uploadBoxArea) {
+      uploadBoxArea.addEventListener('click', function (e) {
+        if (!currentUser) {
+          e.preventDefault();
+          e.stopPropagation(); // Stop event dari tombol di dalamnya
+          alert('Anda harus login terlebih dahulu untuk mengunggah file!');
+          showAuth('../Profil/login.html');
+        }
+      }, true); // Capture phase: deteksi sebelum sampai ke anak
+    }
+
+    // 3. Tombol Upload (jika sudah pilih file)
+    const uploadActionBtn = document.getElementById('uploadActionBtn');
+    if (uploadActionBtn) {
+      uploadActionBtn.addEventListener('click', function (e) {
+        if (!currentUser) {
+          e.preventDefault();
+          alert('Anda harus login terlebih dahulu untuk mengunggah!');
+          showAuth('../Profil/login.html');
+          return;
+        }
+        // Jika sudah login, panggil fungsi uploadFile dari script.js
+        if (typeof uploadFile === 'function') {
+          uploadFile();
+        }
+      });
+    }
+    
+    // Hapus inline onclick dari tombol choose file, biarkan event listener di uploadBoxArea yang handle
+    // Atau spesifik handle tombol choose file jika ingin logic berbeda
+    const chooseFileBtn = document.getElementById('chooseFileBtn');
+    if(chooseFileBtn){
+        chooseFileBtn.removeAttribute('onclick');
+        chooseFileBtn.addEventListener('click', function(e){
+            if(!currentUser){
+                 e.stopPropagation(); // Biar tidak trigger alert dua kali dari parent
+                 alert('Anda harus login terlebih dahulu untuk memilih file!');
+                 showAuth('../Profil/login.html');
+            } else {
+                 // Panggil pilihFile dari script.js
+                 if(typeof pilihFile === 'function') {
+                     pilihFile();
+                 } else {
+                     document.getElementById('fileInput').click();
+                 }
+            }
+        });
+    }
 
     // Check login status when page loads
     checkLoginStatus();
