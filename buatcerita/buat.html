@@ -126,6 +126,11 @@
     <img src="img/imgberhasil.png" class="popup-img" alt="Berhasil">
   </div>
 
+  <!-- Popup Harus Login -->
+  <div id="popupLogin" style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); align-items: center; justify-content: center;">
+    <img src="img/haruslogin.png" class="popup-img" alt="Harus Login" style="cursor: pointer; max-width: 400px; animation: popupAnim 0.3s ease;">
+  </div>
+
   <!-- Login/Register Overlay -->
   <div id="auth-overlay"
     style="display: none; position: fixed; inset: 0; z-index: 100; background: transparent; align-items: center; justify-content: center;">
@@ -299,16 +304,27 @@
         }
     `;
     document.head.appendChild(notificationStyles);
-
     // ============================================
     // RESTRICT ACCESS FOR NON-LOGGED IN USERS
     // ============================================
 
+    const popupLogin = document.getElementById('popupLogin');
+    function showPopupLogin() {
+      popupLogin.style.display = 'flex';
+    }
+
+    // Klik pada popup login akan menutup popup dan membuka halaman auth
+    if (popupLogin) {
+      popupLogin.addEventListener('click', function () {
+        popupLogin.style.display = 'none';
+        showAuth('../Profil/login.html');
+      });
+    }
+
     // Fungsi untuk mengecek login sebelum aksi
     function checkLoginBeforeAction(actionName, callback) {
       if (!currentUser) {
-        alert('Anda harus login terlebih dahulu untuk ' + actionName + '!');
-        showAuth('../Profil/login.html'); // Opsional: langsung buka login
+        showPopupLogin();
         return false;
       }
       if (callback) callback();
@@ -338,8 +354,7 @@
         if (!currentUser) {
           e.preventDefault();
           e.stopPropagation(); // Stop event dari tombol di dalamnya
-          alert('Anda harus login terlebih dahulu untuk mengunggah file!');
-          showAuth('../Profil/login.html');
+          showPopupLogin();
         }
       }, true); // Capture phase: deteksi sebelum sampai ke anak
     }
@@ -350,8 +365,7 @@
       uploadActionBtn.addEventListener('click', function (e) {
         if (!currentUser) {
           e.preventDefault();
-          alert('Anda harus login terlebih dahulu untuk mengunggah!');
-          showAuth('../Profil/login.html');
+          showPopupLogin();
           return;
         }
         // Jika sudah login, panggil fungsi uploadFile dari script.js
@@ -360,26 +374,25 @@
         }
       });
     }
-    
+
     // Hapus inline onclick dari tombol choose file, biarkan event listener di uploadBoxArea yang handle
     // Atau spesifik handle tombol choose file jika ingin logic berbeda
     const chooseFileBtn = document.getElementById('chooseFileBtn');
-    if(chooseFileBtn){
-        chooseFileBtn.removeAttribute('onclick');
-        chooseFileBtn.addEventListener('click', function(e){
-            if(!currentUser){
-                 e.stopPropagation(); // Biar tidak trigger alert dua kali dari parent
-                 alert('Anda harus login terlebih dahulu untuk memilih file!');
-                 showAuth('../Profil/login.html');
-            } else {
-                 // Panggil pilihFile dari script.js
-                 if(typeof pilihFile === 'function') {
-                     pilihFile();
-                 } else {
-                     document.getElementById('fileInput').click();
-                 }
-            }
-        });
+    if (chooseFileBtn) {
+      chooseFileBtn.removeAttribute('onclick');
+      chooseFileBtn.addEventListener('click', function (e) {
+        if (!currentUser) {
+          e.stopPropagation(); // Biar tidak trigger alert dua kali dari parent
+          showPopupLogin();
+        } else {
+          // Panggil pilihFile dari script.js
+          if (typeof pilihFile === 'function') {
+            pilihFile();
+          } else {
+            document.getElementById('fileInput').click();
+          }
+        }
+      });
     }
 
     // Check login status when page loads

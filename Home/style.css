@@ -61,23 +61,34 @@ h3 {
   background: linear-gradient(90deg, #617ed6 0%, var(--biru-tua) 100%);
   color: white;
   border-radius: 500px;
-  transition: all 0.3s ease; /* Biar transisi warna halus */
+  transition: all 0.3s ease;
+  /* Biar transisi warna halus */
   font-size: clamp(1rem, 2vw, 1.3rem);
-  display: inline-block; /* Agar ukuran sesuai teks */
-  border: 1px solid rgba(0,0,0,0.1);
+  display: inline-block;
+  /* Agar ukuran sesuai teks */
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .tombol:hover {
   background: var(--biru-tua);
-  transform: scale(1.01); /* Sedikit efek membesar saat hover */
+  transform: scale(1.01);
+  /* Sedikit efek membesar saat hover */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   transform: translateY(-5px);
 }
 
 @keyframes drift {
-  0% {transform: translateX(-5px);}
-  50% { transform: translateX(5px); }
-  100% { transform: translateX(-5px); }
+  0% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  100% {
+    transform: translateX(-5px);
+  }
 }
 
 .navigasi {
@@ -119,10 +130,13 @@ h3 {
   font-weight: 500;
   color: rgba(58, 82, 152, 0.5);
   font-size: clamp(12px, 3vw, 20px);
-  text-decoration: none; /* Menghilangkan garis bawah default link */
+  text-decoration: none;
+  /* Menghilangkan garis bawah default link */
   cursor: pointer;
-  transition: all 0.3s ease; /* Biar transisi warna halus */
-  border-bottom: 2px solid transparent; /* Placeholder agar tidak loncat saat hover */
+  transition: all 0.3s ease;
+  /* Biar transisi warna halus */
+  border-bottom: 2px solid transparent;
+  /* Placeholder agar tidak loncat saat hover */
   padding: 0.5vw 0;
 }
 
@@ -136,14 +150,15 @@ h3 {
   background: linear-gradient(90deg, #617ed6 0%, var(--biru-tua) 100%);
   color: white;
   border-radius: 500px;
-  border-bottom: none; 
+  border-bottom: none;
   font-weight: 700;
 }
 
 .navigasi .menu a.Masuk:hover {
   background: var(--biru-tua);
   border-bottom: none;
-  transform: scale(1.01); /* Sedikit efek membesar saat hover */
+  transform: scale(1.01);
+  /* Sedikit efek membesar saat hover */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -173,7 +188,7 @@ h3 {
   width: 35rem;
   height: 35rem;
   border-radius: 50%;
-  box-shadow: 0px 0px 20rem rgba(255, 217, 102, 0.4);
+  box-shadow: 0px 0px 20rem rgba(255, 217, 102, 0.6);
   background: linear-gradient(0deg, #ffd966 55%);
   z-index: 1;
   border: 0.3rem solid rgba(255, 255, 255, 0.01);
@@ -204,7 +219,7 @@ h3 {
 }
 
 .section-1-home .headline-section-1 {
-  text-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   max-width: 900px;
 }
@@ -282,7 +297,8 @@ h3 {
 .section-2-baca .buku-cerita a img {
   width: 10rem;
   height: auto;
-  margin-bottom: 0.7rem; /* Jarak antara ikon dan teks */
+  margin-bottom: 0.7rem;
+  /* Jarak antara ikon dan teks */
 }
 
 .section-2-baca .buku-cerita a:hover {
@@ -315,21 +331,25 @@ h3 {
 .section-3-tulis {
   position: relative;
   width: 100%;
-  min-height: 85vh; /* Disamakan dengan Section 2 agar konsisten */
+  min-height: 85vh;
+  /* Disamakan dengan Section 2 agar konsisten */
   background: linear-gradient(0deg, #a7d8ff 0%, #cce6ff 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Tambahkan ini agar gambar .alam tidak bocor keluar */
+  overflow: hidden;
+  /* Tambahkan ini agar gambar .alam tidak bocor keluar */
 }
 
 .section-3-tulis .alam {
   position: absolute;
-  top: 0;         /* Ubah dari bottom ke top */
+  top: 0;
+  /* Ubah dari bottom ke top */
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 5;     /* Sama dengan .cloud-2 */
+  z-index: 5;
+  /* Sama dengan .cloud-2 */
   object-fit: cover;
   pointer-events: none;
 }
@@ -337,10 +357,10 @@ h3 {
 .section-3-tulis .caption-section-3 {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; 
-  text-align: left;  
+  align-items: flex-start;
+  text-align: left;
   max-width: 40%;
-  height: fit-content ;
+  height: fit-content;
   gap: 1vw;
   z-index: 6;
   background-color: rgba(255, 255, 255, 0.5);
@@ -382,18 +402,25 @@ h3 {
 
 .section-4-tentang .about .cloud-4 {
   position: absolute;
-  top: 0;           /* Pastikan mulai dari pojok kiri atas */
+  top: 0;
+  /* Pastikan mulai dari pojok kiri atas */
   left: 0;
   width: 100%;
-  height: 100%;     /* Memaksa gambar memenuhi seluruh tinggi kontainer */
-  z-index: 1;       /* Layer latar belakang */
-  object-fit: cover; /* Menjaga proporsi gambar tetap bagus */
-  pointer-events: none; /* Klik akan menembus ke konten di bawahnya */
+  height: 100%;
+  /* Memaksa gambar memenuhi seluruh tinggi kontainer */
+  z-index: 1;
+  /* Layer latar belakang */
+  object-fit: cover;
+  /* Menjaga proporsi gambar tetap bagus */
+  pointer-events: none;
+  /* Klik akan menembus ke konten di bawahnya */
 }
 
 .section-4-tentang .about .konten-about {
-  position: relative; /* Wajib agar z-index berfungsi */
-  z-index: 6;         /* Layer atas (menindih awan) */
+  position: relative;
+  /* Wajib agar z-index berfungsi */
+  z-index: 6;
+  /* Layer atas (menindih awan) */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -401,13 +428,14 @@ h3 {
   gap: 50px;
   width: fit-content;
   margin: auto;
-  padding: 15% 0;    /* Padding ditambah agar ada ruang untuk awan */
+  padding: 15% 0;
+  /* Padding ditambah agar ada ruang untuk awan */
 }
 
 .section-4-tentang .about .konten-about .caption-about {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   gap: 3rem;
   width: 40%;
 }
@@ -427,7 +455,8 @@ h3 {
   border-bottom-left-radius: 0.27vw;
 }
 
-.section-4-tentang .about .konten-about .caption-about .mimi, .section-4-tentang .about .konten-about .caption-about .ndo {
+.section-4-tentang .about .konten-about .caption-about .mimi,
+.section-4-tentang .about .konten-about .caption-about .ndo {
   font-family: "Nunito", sans-serif;
   font-weight: 800;
   color: #ffd966;
@@ -437,6 +466,7 @@ h3 {
 .section-4-tentang .about .konten-about .caption-about .mimi {
   color: #2F80ED;
 }
+
 .section-4-tentang .about .konten-about .logo-mimindo {
   width: clamp(12rem, 20vw, 23rem);
   height: auto;
@@ -452,7 +482,8 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Tambahkan ini */
+  overflow: hidden;
+  /* Tambahkan ini */
 }
 
 .section-4-tentang .vmisi .konten-vmisi .isi .misi1,
@@ -460,28 +491,37 @@ h3 {
 .section-4-tentang .vmisi .konten-vmisi .isi .misi3 {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Membuat IKON ke TENGAH secara horizontal */
-  flex: 1; /* Membuat ketiga kolom membagi lebar sama rata */
+  align-items: center;
+  /* Membuat IKON ke TENGAH secara horizontal */
+  flex: 1;
+  /* Membuat ketiga kolom membagi lebar sama rata */
 }
 
 .section-4-tentang .vmisi .langit {
   position: absolute;
-  top: 0;           /* Pastikan mulai dari pojok kiri atas */
+  top: 0;
+  /* Pastikan mulai dari pojok kiri atas */
   left: 0;
   width: 100%;
-  height: 100%;     /* Memaksa gambar memenuhi seluruh tinggi kontainer */
-  z-index: 5;       /* Layer latar belakang */
-  object-fit: cover; /* Menjaga proporsi gambar tetap bagus */
-  pointer-events: none; /* Klik akan menembus ke konten di bawahnya */
+  height: 100%;
+  /* Memaksa gambar memenuhi seluruh tinggi kontainer */
+  z-index: 5;
+  /* Layer latar belakang */
+  object-fit: cover;
+  /* Menjaga proporsi gambar tetap bagus */
+  pointer-events: none;
+  /* Klik akan menembus ke konten di bawahnya */
 }
 
 .section-4-tentang .vmisi .konten-vmisi {
-  position: absolute; /* WAJIB agar melayang di atas gambar .langit */
+  position: absolute;
+  /* WAJIB agar melayang di atas gambar .langit */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Teknik centering absolut */
+  transform: translate(-50%, -50%);
+  /* Teknik centering absolut */
   z-index: 6;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -493,52 +533,66 @@ h3 {
 .section-4-tentang .vmisi .konten-vmisi .isi {
   display: flex;
   flex-direction: row;
-  align-items: stretch; /* Memaksa semua anak (div) memiliki tinggi yang sama */
+  align-items: stretch;
+  /* Memaksa semua anak (div) memiliki tinggi yang sama */
   justify-content: center;
   gap: 3vw;
-  z-index: 2; /* Pastikan di atas gambar langit */
-  position: relative; /* Agar z-index berfungsi */
+  z-index: 2;
+  /* Pastikan di atas gambar langit */
+  position: relative;
+  /* Agar z-index berfungsi */
 }
 
 .section-4-tentang .vmisi .konten-vmisi .isi .ikon img {
   width: 3vw;
   height: auto;
-  
+
 }
 
 .section-4-tentang .vmisi .konten-vmisi .isi .ikon {
   background-color: #ffd966;
-  border-radius: 50%; /* Bulat sempurna */
+  border-radius: 50%;
+  /* Bulat sempurna */
   padding: 1vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5vw;  /* Tentukan width/height agar konsisten bulat */
+  width: 5vw;
+  /* Tentukan width/height agar konsisten bulat */
   height: 5vw;
-  min-width: 50px; /* Limit agar tidak kekecilan di mobile */
+  min-width: 50px;
+  /* Limit agar tidak kekecilan di mobile */
   min-height: 50px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  
+
   position: relative;
-  z-index: 3;      /* Pastikan di atas kotak putih */
-  margin-bottom: -2.5vw; /* GAP MINUS: Setengah dari tinggi ikon agar menumpuk */
+  z-index: 3;
+  /* Pastikan di atas kotak putih */
+  margin-bottom: -2.5vw;
+  /* GAP MINUS: Setengah dari tinggi ikon agar menumpuk */
 }
 
 .section-4-tentang .vmisi .konten-vmisi .isi .isi-misi {
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.7);
-  padding: 4vw 1.5vw 1.5vw 1.5vw; /* Padding atas lebih besar karena tertutup ikon */
+  padding: 4vw 1.5vw 1.5vw 1.5vw;
+  /* Padding atas lebih besar karena tertutup ikon */
   border-radius: 1.5vw;
-  
-  flex: 1;          /* INI KUNCINYA agar kotak putih mengisi sisa tinggi ke bawah */
+
+  flex: 1;
+  /* INI KUNCINYA agar kotak putih mengisi sisa tinggi ke bawah */
   display: flex;
   flex-direction: column;
-  width: 100%;      /* Mengikuti lebar parent (.misi1, dst) */
-  max-width: 20vw;  /* Sedikit diperlebar agar teks tidak terlalu sempit */
+  width: 100%;
+  /* Mengikuti lebar parent (.misi1, dst) */
+  max-width: 20vw;
+  /* Sedikit diperlebar agar teks tidak terlalu sempit */
 }
 
-.section-4-tentang .vmisi .konten-vmisi .isi .isi-misi .headline-misi-1, .headline-misi-2, .headline-misi-3 {
+.section-4-tentang .vmisi .konten-vmisi .isi .isi-misi .headline-misi-1,
+.headline-misi-2,
+.headline-misi-3 {
   margin-bottom: 1vw;
 }
 
@@ -552,23 +606,30 @@ h3 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  overflow: hidden; /* Tambahkan ini */
+  overflow: hidden;
+  /* Tambahkan ini */
 }
 
 .section-4-tentang .kontak .cloud-end {
   position: absolute;
-  top: 0;           /* Pastikan mulai dari pojok kiri atas */
+  top: 0;
+  /* Pastikan mulai dari pojok kiri atas */
   left: 0;
   width: 100%;
-  height: 100%;     /* Memaksa gambar memenuhi seluruh tinggi kontainer */
-  z-index: 5;       /* Layer latar belakang */
-  object-fit: cover; /* Menjaga proporsi gambar tetap bagus */
-  pointer-events: none; /* Klik akan menembus ke konten di bawahnya */
+  height: 100%;
+  /* Memaksa gambar memenuhi seluruh tinggi kontainer */
+  z-index: 5;
+  /* Layer latar belakang */
+  object-fit: cover;
+  /* Menjaga proporsi gambar tetap bagus */
+  pointer-events: none;
+  /* Klik akan menembus ke konten di bawahnya */
 }
 
 .section-4-tentang .kontak .isi {
-  position: relative; /* Wajib agar z-index berfungsi */
-  z-index: 6; 
+  position: relative;
+  /* Wajib agar z-index berfungsi */
+  z-index: 6;
   display: flex;
   padding: 5vw;
   align-items: flex-start;
@@ -597,7 +658,8 @@ h3 {
 
 .section-4-tentang .kontak .isi .kiri .logo {
   display: flex;
-  align-items: center; /* Supaya teks dan logo sejajar tengah secara horizontal */
+  align-items: center;
+  /* Supaya teks dan logo sejajar tengah secara horizontal */
   gap: 1vw;
 }
 
@@ -612,11 +674,11 @@ h3 {
   text-shadow: 0px 0px 1px #000000;
 }
 
-.section-4-tentang .kontak .isi .kiri .logo .brand .mimi{
+.section-4-tentang .kontak .isi .kiri .logo .brand .mimi {
   color: #2F80ED;
 }
 
-.section-4-tentang .kontak .isi .kiri .logo .brand .ndo{
+.section-4-tentang .kontak .isi .kiri .logo .brand .ndo {
   color: #ffd966;
 }
 
@@ -624,7 +686,7 @@ h3 {
   width: fit-content;
 }
 
-.section-4-tentang .kontak .isi .kiri .sosmed .gabung{
+.section-4-tentang .kontak .isi .kiri .sosmed .gabung {
   margin-bottom: 0.5rem;
 }
 
@@ -633,7 +695,7 @@ h3 {
   gap: 1rem;
 }
 
-.section-4-tentang .kontak .isi .kiri .sosmed .ikon-sosmed img{
+.section-4-tentang .kontak .isi .kiri .sosmed .ikon-sosmed img {
   border-radius: 8px;
   width: 1.8rem;
 }
@@ -656,7 +718,7 @@ h3 {
   padding: 1rem 0;
 }
 
-.section-4-tentang .kontak .isi .kanan form input{
+.section-4-tentang .kontak .isi .kanan form input {
   width: 100%;
   padding: 0.5vw;
   margin-bottom: 1vw;
@@ -665,7 +727,7 @@ h3 {
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
   color: var(--biru-tua);
-  font-size: clamp(1rem, 2vw, 1.2rem );
+  font-size: clamp(1rem, 2vw, 1.2rem);
   background-color: rgba(255, 255, 255, 0.7);
 }
 
@@ -681,12 +743,13 @@ h3 {
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
   color: var(--biru-tua);
-  font-size: clamp(1rem, 2vw, 1.2rem );
+  font-size: clamp(1rem, 2vw, 1.2rem);
   background-color: rgba(255, 255, 255, 0.7);
 }
 
 .section-4-tentang footer {
-  position: relative; /* Wajib agar z-index berfungsi */
+  position: relative;
+  /* Wajib agar z-index berfungsi */
   z-index: 5;
   width: 100%;
   color: rgba(58, 82, 152, 0.7);
@@ -700,6 +763,12 @@ h3 {
 }
 
 @media (max-width: 640px) {
+  .matahari {
+    width: 25rem;
+    height: 25rem;
+    box-shadow: 0px 0px 100px rgba(255, 217, 102, 1);
+  }
+
   nav {
     padding: 0;
   }
@@ -720,19 +789,26 @@ h3 {
     width: auto;
   }
 
-  .caption-dan-button { align-items: center; text-align: center; }
-  .section-2-baca .isi { flex-direction: column; text-align: center; }
+  .caption-dan-button {
+    align-items: center;
+    text-align: center;
+  }
 
-  .section-2-baca .isi, 
-  .konten-about, 
+  .section-2-baca .isi {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-2-baca .isi,
+  .konten-about,
   .kontak .isi {
     flex-direction: column;
     text-align: center;
   }
 
-  .section-2-baca .isi-section-2, 
-  .caption-about, 
-  .kontak .kiri, 
+  .section-2-baca .isi-section-2,
+  .caption-about,
+  .kontak .kiri,
   .kontak .kanan {
     align-items: center;
     width: 100%;
@@ -744,10 +820,10 @@ h3 {
   }
 
   .section-3-tulis .caption-section-3 {
-    align-items: center; 
-    text-align: center;  
+    align-items: center;
+    text-align: center;
     max-width: 75%;
-    height: fit-content ;
+    height: fit-content;
     gap: 2rem;
     padding: 1rem;
   }
@@ -817,7 +893,8 @@ h3 {
   .section-4-tentang .vmisi .konten-vmisi .isi .ikon {
     width: 4rem;
     height: 4rem;
-    margin-bottom: -2rem; /* GAP MINUS: Setengah dari tinggi ikon agar menumpuk */
+    margin-bottom: -2rem;
+    /* GAP MINUS: Setengah dari tinggi ikon agar menumpuk */
   }
 
   .section-4-tentang .vmisi .konten-vmisi .isi .isi-misi {
@@ -833,7 +910,7 @@ h3 {
     align-items: center;
   }
 
-  .section-4-tentang .kontak .kiri{
+  .section-4-tentang .kontak .kiri {
     padding-top: 3rem;
     min-width: 90%;
   }
