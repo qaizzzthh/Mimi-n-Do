@@ -658,40 +658,17 @@ body {
 }
 
 .buat-header {
+  flex-direction: column; /* susun vertikal */
   position: relative;
-  width: 100%;
-  max-width: 700px;
-  display: flex;
+  width: 70vw;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.buat-header .back-btn {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  transition: transform 0.3s ease;
-}
-
-.buat-header .back-btn:hover {
-  transform: translateY(-50%) scale(1.1);
-}
-
-.buat-header .back-btn img {
-  width: 50px;
+  margin-bottom: 1rem;
 }
 
 .buat-header .library-btn {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;    
+  margin-top: 1rem;       
   background: none;
   border: none;
   cursor: pointer;
@@ -699,20 +676,23 @@ body {
   transition: transform 0.3s ease;
 }
 
+
 .buat-header .library-btn:hover {
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-5px) scale(1.1);
 }
 
 .buat-header .library-btn img {
-  width: 80px;
+  width: 6rem;
 }
 
 .judul-box {
   background: rgba(255, 255, 255, 0.35);
-  border: 2px solid #008BFF;
+  border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   padding: 1rem 2.5rem;
   text-align: center;
+  backdrop-filter: blur(5px);
+  width: 100%;
 }
 
 .judul-text {
@@ -724,7 +704,8 @@ body {
 /* Upload Section */
 .upload-section {
   width: 100%;
-  max-width: 900px;
+  max-width: 70vw;
+  height: 30rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -734,10 +715,10 @@ body {
 .upload-box {
   position: relative;
   width: 100%;
-  min-height: 380px;
+  height: 100%;
   border: 3px dashed rgba(0, 0, 0, 0.2);
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -745,6 +726,7 @@ body {
   gap: 1rem;
   padding: 2rem;
   transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 }
 
 .upload-box:hover {
@@ -1036,6 +1018,6 @@ body {
 
   .buat-header .back-btn img,
   .buat-header .library-btn img {
-    width: 36px;
+    width: 4.5rem;
   }
 }
