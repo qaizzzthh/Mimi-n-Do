@@ -95,7 +95,7 @@
 body{
   margin:0;
   height: 100vh;
-  overflow: hidden;
+  overflow-x:hidden;
   font-family:'Quicksand', sans-serif;
 
   background: linear-gradient(
@@ -690,7 +690,137 @@ animation: popupAnim 0.3s ease;
 
 }
 
+:root{
+  --biru-tua:#3a5298;
+  --biru-muda:#6fb1e7;
+  --biru-langit:#cfe6f8;
+  --putih:#ffffff;
+  --accent-coral:#f97316;
+}
+
+/* NAVBAR */
+.navigasi{
+  width:80px;
+  height:100vh;
+  position:fixed;
+  left:0;
+  top:0;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:20px 0;
+
+  background:white;
+  z-index:999;
+}
+
+.menu{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  margin-top:30px;
+}
+
+.menu-item a{
+  width:50px;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:15px;
+  text-decoration:none;
+}
+
+.menu-item .material-symbols-outlined{
+  font-size:28px;
+  color:#3a5298;
+  opacity:0.6;
+}
+
+.menu-item a:hover{
+  background:#cfe6f8;
+}
+
+.menu-item a:hover span{
+  opacity:1;
+}
+
+.menu-footer{
+  margin-top:auto;
+}
+
+.Masuk{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:50px;
+  height:50px;
+  border-radius:15px;
+  background:#f97316;
+  color:white;
+  font-size:12px;
+  text-decoration:none;
+}
+
+.main-content{
+  margin-left:80px;
+}
+
+.menu-item a.active{
+  background:#3a5298;
+}
+
+.menu-item a.active span{
+  color:white;
+  opacity:1;
+}
 
 
+/* ANIMASI DASAR */
+.icon-hover,
+.menu-item a,
+.apus-icon,
+.tambah-icon,
+.btn-upload,
+.simpan-btn {
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
 
+.icon-hover:hover,
+.menu-item a:hover,
+.apus-icon:hover,
+.tambah-icon:hover,
+.btn-upload:hover,
+.simpan-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+}
 
+.icon-hover:active,
+.menu-item a:active,
+.apus-icon:active,
+.tambah-icon:active,
+.btn-upload:active,
+.simpan-btn:active {
+  transform: scale(0.95);
+}
+
+.icon-hover:hover,
+.menu-item a:hover,
+.apus-icon:hover,
+.tambah-icon:hover,
+.btn-upload:hover,
+.simpan-btn:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.apus-icon img,
+.tambah-icon img {
+  transition: transform 0.25s ease;
+}
+
+.apus-icon:hover img,
+.tambah-icon:hover img {
+  transform: rotate(-10deg) scale(1.1);
+}
