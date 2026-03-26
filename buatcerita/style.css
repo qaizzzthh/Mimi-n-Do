@@ -352,27 +352,27 @@ body {
 .tambah-icon {
   position: absolute;
   top: 0;
-  transform: translateY(-50%);
+  transform: translateY(-20%);
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .apus-icon:hover,
 .tambah-icon:hover {
-  transform: translateY(-50%) scale(1.15);
+  transform: translateY(-50%) scale(1);
 }
 
 .apus-icon {
-  right: 20px;
+  left: -10px;
 }
 
 .tambah-icon {
-  left: 20px;
+  right: -10px;
 }
 
 .apus-icon img,
 .tambah-icon img {
-  width: 55px;
+  width: 70px;
 }
 
 /* Cerita List */
@@ -474,25 +474,34 @@ body {
 }
 
 /* Awan Decor */
+/* Awan */
 .awankiri-icon,
-.awankanan-icon {
+.awankanan-icon{
   position: absolute;
   bottom: 0;
-  width: 100px;
 }
 
-.awankiri-icon {
+/* kiri */
+.awankiri-icon{
   left: 0;
-  transform: translate(-30%, 30%);
+  transform: translate(-20%, 20%);
 }
 
-.awankanan-icon {
+/* kanan */
+.awankanan-icon{
   right: 0;
-  transform: translate(30%, 30%);
+  transform: translate(20%, 20%);
+}
+
+/* ukuran awan */
+.awankiri-icon img,
+.awankanan-icon img{
+  width: 80px;   
 }
 
 /* ==================== HALAMAN EDITOR ==================== */
 .header-editor {
+  position: relative;
   width: 100%;
   max-width: 700px;
   margin-bottom: 1rem;
@@ -532,8 +541,8 @@ body {
 .editor-box {
   position: relative;
   width: 100%;
-  max-width: 700px;
-  min-height: 55vh;
+  max-width: 800px;
+  min-height: 60vh;
   padding: 2.5rem;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 25px;
@@ -561,7 +570,7 @@ body {
 }
 
 .silang-icon img {
-  width: 50px;
+  width: 80px;
 }
 
 .pencil-icon {
@@ -570,7 +579,7 @@ body {
 }
 
 .pencil-icon img {
-  width: 55px;
+  width: 85px;
 }
 
 .simpan-btn {
@@ -579,7 +588,7 @@ body {
 }
 
 .simpan-btn img {
-  width: 80px;
+  width: 100px;
 }
 
 /* Input Fields */
@@ -678,7 +687,7 @@ body {
 }
 
 .buat-header .library-btn img {
-  width: 50px;
+  width: 80px;
 }
 
 .judul-box {
@@ -698,7 +707,7 @@ body {
 /* Upload Section */
 .upload-section {
   width: 100%;
-  max-width: 700px;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -708,7 +717,7 @@ body {
 .upload-box {
   position: relative;
   width: 100%;
-  min-height: 300px;
+  min-height: 380px;
   border: 3px dashed rgba(0, 0, 0, 0.2);
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.65);
